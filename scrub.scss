@@ -1,0 +1,85 @@
+body {
+  height: 100vh;
+  width: 100vw;
+}
+.reveal-slider {
+  position: relative;
+  width: 100%;  
+  height: 100%;
+  .box-itself {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &:hover {
+      cursor: pointer;
+    }
+  .sliding {
+    position: relative;
+    left: 50%;
+    height: 100%;
+    width: 3px;
+    z-index: 2;
+    background: white;
+    &:before {
+      content: '';
+      width: 40px;
+      padding-bottom: 40px;
+      position: absolute;
+      display: block;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      border: 3px solid #fff;
+      border-radius: 100%;
+      box-shadow: 0 0 2px 1px #000;
+      z-index: 2;
+    }
+    span[class*=sliding-] {
+        width: 0; 
+        height: 0; 
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent; 
+        position: absolute;
+        top: 50%;
+      &[class*=left] {
+        left: 50%; 
+        transform: translate(-150%,-50%);
+        border-right: 10px solid #000;       
+      }
+      &[class*=right] {
+        right: 50%;     
+        transform: translate(140%,-50%);
+        border-left: 10px solid #000; 
+      }
+    }
+  }
+  .content {
+    display: block;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 50%;
+    > div {
+      position: absolute;
+      height: 100%;
+      width: 100vw;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+      &.content-left {
+        left: 0;
+        > div {
+           left: 0;
+        }
+      }
+      &.content-right {
+        right: 0;
+        > div {
+           right: 0;
+        }
+      }
+  }
+ }  
+}
