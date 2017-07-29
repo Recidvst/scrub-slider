@@ -1,0 +1,34 @@
+{
+  "name": "scrubber-slider",
+  "version": "1.0.0",
+  "description": "Scrubber Slider Widget",
+  "main": "example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Recidvst/scrubber-slider.git"
+  },
+  "author": "Chris Snowden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Recidvst/scrubber-slider/issues"
+  },
+  "homepage": "https://github.com/Recidvst/scrubber-slider#readme",
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "bootstrap-grid": "^2.0.1",
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.5.1",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8"
+  }
+}
