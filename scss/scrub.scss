@@ -1,15 +1,42 @@
- * { box-sizing: border-box; }
-.reveal-slider {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  .box-itself {
-    position: relative;
-    width: 100%;
+.scrub-slider {
+  // utility
+  &:hover {
+    cursor: pointer;
+  }
+  img {
+    max-width: 100%;
+  }
+
+  // slider content
+  .content {
+    display: block;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
     height: 100%;
-    &:hover {
-      cursor: pointer;
+    width: 50%;
+    > div {
+      position: absolute;
+      height: 100%;
+      width: 100vw;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
     }
+      &.content-left {
+        left: 0;
+        > div {
+           left: 0;
+        }
+      }
+      &.content-right {
+        right: 0;
+        > div {
+           right: 0;
+        }
+      }
+  }
+  // slider handle
   .sliding {
     position: relative;
     left: 50%;
@@ -50,33 +77,4 @@
       }
     }
   }
-  .content {
-    display: block;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-    height: 100%;
-    width: 50%;
-    > div {
-      position: absolute;
-      height: 100%;
-      width: 100vw;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 100%;
-    }
-      &.content-left {
-        left: 0;
-        > div {
-           left: 0;
-        }
-      }
-      &.content-right {
-        right: 0;
-        > div {
-           right: 0;
-        }
-      }
-  }
- }
 }

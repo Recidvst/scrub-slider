@@ -48,7 +48,7 @@ gulp.task('scripts', function() {
       'js/*.js'
       ])
       .pipe(sourcemaps.init())
-      .pipe(babel())
+      .pipe(babel().on('error', gutil.log))
       .pipe(uglify().on('error', gutil.log))
       .pipe(concat('app.js'))
       .pipe(rename({
