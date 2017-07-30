@@ -1,14 +1,19 @@
 .scrub-slider {
   // utility
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
   &:hover {
     cursor: pointer;
   }
-  img {
-    max-width: 100%;
+  img, div {
+    min-height: 1px;
+    max-height: 100%;
+    display: block;
   }
 
   // slider content
-  .content {
+  .scrub-content {
     display: block;
     position: absolute;
     top: 0;
@@ -23,13 +28,13 @@
       background-position: center;
       background-size: 100%;
     }
-      &.content-left {
+      &.scrub-left {
         left: 0;
         > div {
            left: 0;
         }
       }
-      &.content-right {
+      &.scrub-right {
         right: 0;
         > div {
            right: 0;

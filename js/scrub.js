@@ -8,10 +8,10 @@ function Scrub(el) {
     let shrink = full - pos;
     let sliding = document.getElementsByClassName('sliding')[0];
        sliding.setAttribute("style", "left:" + pos + "px");
-    let contentLeft = document.getElementsByClassName('content-left')[0];
-       contentLeft.setAttribute("style", "width:" + pos + "px");
-    let contentRight = document.getElementsByClassName('content-right')[0];
-       contentRight.setAttribute("style", "width:" + shrink + "px");
+    let contentLeft = document.getElementsByClassName('scrub-left')[0];
+       contentLeft.setAttribute("style", "width:" + ((pos > 0) ? pos : 0) + "px");
+    let contentRight = document.getElementsByClassName('scrub-right')[0];
+       contentRight.setAttribute("style", "width:" + ((shrink > 0) ? shrink : 0) + "px");
   }
 
   // get chosen slider container
@@ -28,19 +28,32 @@ function Scrub(el) {
   }
   scrubSlider.className += " scrub-slider";
 
-  // get chosen slider's children(images)
+  // get chosen slider's images
+    const scrubChildren = document.getElementsByClassName('scrub-slider')[0].children;
 
+  // wrap in scrub html
+  const scrubLeft = document.createElement('div');
+  scrubLeft.className= "scrub-content scrub-left";
+  scrubLeft = (scrubChildren[0]) ? scrubChildren[0] : '<img src="" title="Missing image" />';
+  const scrubRight = document.createElement('div');
+  scrubRight.className= "scrub-content scrub-right";
+  scrubRight = (scrubChildren[1]) ? scrubChildren[1] : '<img src="" title="Missing image" />';
+  // scrubRight.innerHTML = (scrubChildren[1]) ? scrubChildren[1] : '<img src="" title="Missing image" />';
+  // inject
+  scrubSlider.innerHTML = '';
+  scrubSlider.appendChild(scrubLeft);
+  scrubSlider.appendChild(scrubRight);
 
   // add scrubber control/handle
   const scrubberHandle = document.createElement('div');
-  scrubberHandle.className="sliding";
+  scrubberHandle.className= "sliding";
   scrubberHandle.innerHTML = '<span class="sliding-left"></span><span class="sliding-right"></span>';
   scrubSlider.appendChild(scrubberHandle);
 
   // add mousemove listener
   scrubSlider.addEventListener('mousemove', function(e) {
     let mousePosition = e.clientX;
-    let fullWidth = cont.offsetWidth;
+    let fullWidth = scrubSlider.offsetWidth;
     mover(mousePosition,fullWidth);
   });
 
