@@ -14,7 +14,19 @@
     top: 0;
     overflow: hidden;
     height: 100%;
-    width: 100%;
+    width: 100vw;
+    &.scrub-left {
+      left: 0;
+      > div {
+         left: 0;
+      }
+    }
+    &.scrub-right {
+      right: 0;
+      > div {
+         right: 0;
+      }
+    }
     > div {
       position: absolute;
       height: 100%;
@@ -23,18 +35,7 @@
       background-position: center;
       background-size: 100%;
     }
-      &.scrub-left {
-        left: 0;
-        > div {
-           left: 0;
-        }
-      }
-      &.scrub-right {
-        right: 0;
-        > div {
-           right: 0;
-        }
-      }
+
   }
   // slider handle
   .sliding {
