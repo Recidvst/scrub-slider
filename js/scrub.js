@@ -7,6 +7,7 @@ try{
       // get chosen slider container
       var scrubSlider;
       scrubSlider = document.querySelectorAll(el)[0];
+      var sliderWidth = scrubSlider.offsetWidth;
       
       // avoid non-specific classes..
       if ( el.indexOf('.') > -1 && document.querySelectorAll(el).length > 1 ) {
@@ -29,6 +30,7 @@ try{
                    scrubCont.className = ( index == 0 ) ? "scrub-content scrub-left" : "scrub-content scrub-right";
                    scrubSlider.insertBefore(scrubCont,scrubSlider.firstChild);
                    // re-attach div
+                   scrubImage.style.width = sliderWidth + "px";
                    scrubCont.append(scrubImage);
                    // need a background image..
                    if ( el.style.backgroundImage == '' ) {
@@ -45,6 +47,7 @@ try{
                    scrubCont.className = ( index == 0 ) ? "scrub-content scrub-left" : "scrub-content scrub-right";
                    scrubSlider.insertBefore(scrubCont,scrubSlider.firstChild);
                    // re-attach div
+                   scrubImage.style.width = sliderWidth + "px";
                    scrubImage.style.backgroundImage = 'url(' + imgSrc + ')';
                    scrubCont.append(scrubImage);
                 }
