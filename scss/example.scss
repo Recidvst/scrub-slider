@@ -1,4 +1,7 @@
-* { box-sizing: border-box; }
+* { 
+  box-sizing: border-box;
+  font-family: 'Ubuntu Mono', monospace;
+  }
 
 .example-slider {
   height: 50vw;
@@ -12,7 +15,9 @@
 }
 
 h1 {
-    font-family: 'Ubuntu Mono', monospace;
     color: indianred;
     font-size: 4rem;
+}
+p, li {
+    color: indianred;
 }
