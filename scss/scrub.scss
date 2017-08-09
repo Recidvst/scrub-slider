@@ -2,6 +2,7 @@
   // utility
   position: relative;
   max-width: 100%;
+  height: 30vw; //default to be overridden
   overflow: hidden;
   &:hover {
     cursor: pointer;
@@ -30,7 +31,7 @@
     > div {
       position: absolute;
       height: 100%;
-      width: 100vw;
+      width: 100vw; // default to be overridden
       background-repeat: no-repeat;
       background-position: center;
       background-size: 100%;
@@ -39,7 +40,7 @@
   }
   // slider handle
   .sliding {
-    position: relative;
+    position: absolute;
     left: 50%;
     height: 100%;
     width: 3px;
