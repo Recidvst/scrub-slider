@@ -1,6 +1,31 @@
 /* Scrubber Slider */
   /* vanillaJS */
 
+/* config options draft
+  Scrub({
+    target: obj/string, //default empty - check for this
+    height: int, //default in css - css added if not 0
+    handle: bool, //default true - css added if false
+    imgSrc: string, // default empty - ignore if empty
+    altText: string // default empty - ignore if empty
+  });
+*/
+
+/* consider passing obj
+function Scrub(args) {
+  isObject = function(a) {
+    return (!!a) && (a.constructor === Object); 
+  };
+  if ( isObject(args) ) {  
+      const scrubSlider = document.querySelectorAll(args.target)[0];
+  }
+  else {
+      const scrubSlider = document.querySelectorAll(el)[0];
+  }
+}
+*/
+
+
 function Scrub(el) {
 try{
     function utilityFn(callback) {
