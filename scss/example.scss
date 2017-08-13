@@ -31,13 +31,18 @@ h3 {
 }
 // sliders
 [class*='example-slider'] {
+    display: block;
     border: 5px solid black;
 }
 .example-slider-half {
-    display: block;
-    width: 48%;
-    float: left;
-    margin: 30px 1%;
+    width: 50%;
+    margin: 30px auto;
+    @media(max-width: 797px) {
+        width: 100%;
+    }
+}
+.example-slider-full {
+    margin: 30px auto;
 }
 // content sections
 section {
@@ -77,15 +82,35 @@ pre {
 }
 .btn {
     display: inline-block;
-    padding: 20px 40px;
-    background-color: indianred;
-    color: #fff;
-    font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+    padding: 15px 30px;
+    margin: 10px;
+    border: 3px solid indianred;
+    color: indianred;
+    font-size: 1.5rem;
     font-family: sans-serif;
     text-decoration: none;
     transition: all .2s ease-in-out;
+    &:after {
+        content: "";
+        position: absolute;
+        height: 0%;
+        left: 50%;
+        top: 50%;
+        width: 150%;
+        z-index: -1;
+        transition: all 0.75s ease 0s;
+        transform: translateX(-50%) translateY(-50%) rotate(25deg);
+        background: indianred;
+    }
     &:hover {
-        background-color: mediumvioletred;
         color: #fff;
+        &:after {
+            height: 450%;
+        }
+    }
+    @media(max-width: 797px) {
+        width: 100%;
     }
 }
