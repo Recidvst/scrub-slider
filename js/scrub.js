@@ -150,7 +150,7 @@ function ScrubInitiate() {
                         let contentRight = slider.querySelectorAll('.scrub-right');
                            contentRight[0].style.width = ((shrink > 0) ? shrink : 0) + "px";
                     }
-                }, 10);
+                }, 0);
                 // add mousemove listener
                 scrubSlider.addEventListener('mousemove', function(e) {
                   let mousePosition = e.clientX - this.offsetLeft;
