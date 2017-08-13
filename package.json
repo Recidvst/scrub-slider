@@ -1,21 +1,21 @@
 {
-  "name": "scrubber-slider",
+  "name": "scrub-slider",
   "version": "1.0.0",
-  "description": "Scrubber Slider Widget",
+  "description": "Scrub Slider Widget",
   "main": "example.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Recidvst/scrubber-slider.git"
+    "url": "git+https://github.com/Recidvst/scrub-slider.git"
   },
   "author": "Chris Snowden",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Recidvst/scrubber-slider/issues"
+    "url": "https://github.com/Recidvst/scrub-slider/issues"
   },
-  "homepage": "https://github.com/Recidvst/scrubber-slider#readme",
+  "homepage": "https://github.com/Recidvst/scrub-slider#readme",
   "devDependencies": {
     "babel-preset-env": "^1.6.0",
     "bootstrap-grid": "^2.0.1",

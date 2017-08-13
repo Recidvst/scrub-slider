@@ -1,23 +1,91 @@
-* { 
+* {
   box-sizing: border-box;
   font-family: 'Ubuntu Mono', monospace;
-  }
-
-.example-slider {
-  height: 50vw;
-  .content div {
-    min-height: 500px;
-  }
+    p,li {
+        font-family: sans-serif;
+    }
+    a {
+        font-weight: bold;
+        color: mediumvioletred;
+        &:hover {
+            color: mediumorchid;
+        }
+    }
+    .violet {
+        color: mediumvioletred;
+    }
+    .text-center {
+      text-align: center;
+    }
 }
-
-.text-center {
-  text-align: center;
-}
-
 h1 {
     color: indianred;
     font-size: 4rem;
 }
-p, li {
+h2 {
     color: indianred;
+    font-size: 3rem;
+}
+h3 {
+    font-size: 2rem;
+}
+// sliders
+[class*='example-slider'] {
+    border: 5px solid black;
+}
+.example-slider-half {
+    display: block;
+    width: 48%;
+    float: left;
+    margin: 30px 1%;
+}
+// content sections
+section {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.why-scrub {
+    p {
+        font-size: 1.5rem;
+        font-family: 'Ubuntu Mono', monospace;
+        padding: 10px;
+        font-weight: bold;
+    }
+}
+.how-to {
+    .options {
+        h4 {
+            color: indianred;
+            margin-bottom: 10px;
+        }
+        li {
+            text-align: left;
+        }
+    }
+}
+// bits
+pre {
+    display: block;
+    background: black;
+    color: mediumorchid;
+    line-height: 1.5;
+    padding: 10px;
+    overflow: scroll;
+    span {
+        color: mediumvioletred;
+    }
+}
+.btn {
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: indianred;
+    color: #fff;
+    font-size: 2rem;
+    font-family: sans-serif;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+    &:hover {
+        background-color: mediumvioletred;
+        color: #fff;
+    }
 }

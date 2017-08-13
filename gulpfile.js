@@ -14,7 +14,7 @@ var browserSync = require('browser-sync').create();
 var babel = require("gulp-babel");
 
 // Gulp Default tasks
-gulp.task('default', ['check', 'clean', 'sass', 'scripts', 'browser-sync', 'watch']);
+gulp.task('default', ['check', 'clean', 'dev sass', 'dist sass', 'dev scripts', 'dist scripts', 'browser-sync', 'watch']);
 
 // Gulp Watch function
 gulp.task('watch', function() {
@@ -24,16 +24,32 @@ gulp.task('watch', function() {
 })
 
 // SASS Compile + Minify
-gulp.task('sass', function() {
+gulp.task('dist sass', function() {
   return gulp.src(
     [
-    'node_modules/bootstrap-grid/dist/grid.min.css',
-    'scss/*.scss'
+    'scss/scrub.scss'
     ])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', gutil.log))
     .pipe(cleancss())
-    .pipe(concat('app.css'))
+    .pipe(concat('Scrub.css'))
+    .pipe(rename({
+      suffix: ".min"
+    }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist'))
+    .pipe(browserSync.reload({stream: true}))
+});
+gulp.task('dev sass', function() {
+  return gulp.src(
+    [
+    'node_modules/bootstrap-grid/dist/grid.min.css',
+    'scss/example.scss'
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', gutil.log))
+    .pipe(cleancss())
+    .pipe(concat('ScrubDev.css'))
     .pipe(rename({
       suffix: ".min"
     }))
@@ -42,15 +58,31 @@ gulp.task('sass', function() {
     .pipe(browserSync.reload({stream: true}))
 });
 // Concat + Minify .js
-gulp.task('scripts', function() {
+gulp.task('dist scripts', function() {
     return gulp.src(
       [
-      'js/*.js'
+      'js/scrub.js'
       ])
       .pipe(sourcemaps.init())
       .pipe(babel().on('error', gutil.log))
       .pipe(uglify().on('error', gutil.log))
-      .pipe(concat('app.js'))
+      .pipe(concat('Scrub.js'))
+      .pipe(rename({
+        suffix: ".min"
+      }))
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest('dist'))
+      .pipe(browserSync.reload({stream: true}))
+});
+gulp.task('dev scripts', function() {
+    return gulp.src(
+      [
+      'js/example.js'
+      ])
+      .pipe(sourcemaps.init())
+      .pipe(babel().on('error', gutil.log))
+      .pipe(uglify().on('error', gutil.log))
+      .pipe(concat('ScrubDev.js'))
       .pipe(rename({
         suffix: ".min"
       }))
