@@ -12,10 +12,14 @@ Scrub({
     handle: true,
     src: ['https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg','https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg'],
     alt: ['Image number 1 alt','Image number 2 alt']
-})
+});
 
 Scrub('#slider2');
 
-Scrub('.slider3');
+// Scrub('.slider3');
+Scrub({
+    target: '.slider3',
+    height: '800px'
+});
 
 // Scrub('nonexistent');

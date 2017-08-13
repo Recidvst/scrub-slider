@@ -34,15 +34,21 @@ h3 {
     display: block;
     border: 5px solid black;
 }
-.example-slider-half {
+.example-slider-50 {
     width: 50%;
     margin: 30px auto;
-    @media(max-width: 797px) {
-        width: 100%;
-    }
+}
+.example-slider-75 {
+    width: 75%;
+    margin: 30px auto;
 }
 .example-slider-full {
     margin: 30px auto;
+}
+@media(max-width: 797px) {
+    .example-slider-50, .example-slider-75 {
+        width: 100%;
+    }
 }
 // content sections
 section {
