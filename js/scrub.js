@@ -1,10 +1,29 @@
 /* Scrub Slider */
+// debounce(function(pos,full,slider) {
+
+// helper functions
+// object test
+var isObject = function(a) {
+    return (!!a) && (a.constructor === Object);
+};
+// debounce (thanks to Underscore)
+function debounce(func, wait, immediate) {
+    var timeout;
+    return function() {
+        var context = this, args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+};
 
 function Scrub(scrubArg) {
 
-    var isObject = function(a) {
-        return (!!a) && (a.constructor === Object);
-    };
     // check if simple call or config passed
     if ( isObject(scrubArg) ) {
         // set function default arguments
@@ -24,7 +43,7 @@ function ScrubInitiate() {
     // get chosen slider container
     const scrubSlider = ( isObject(scrubArg) ) ? document.querySelectorAll(scrubArg.target)[0] : document.querySelectorAll(scrubArg)[0] ;
 
-    try{
+    try {
         function utilityFn(callback) {
 
           // avoid non-specific classes..
@@ -72,6 +91,17 @@ function ScrubInitiate() {
                        if ( el.style.backgroundImage == '' ) {
                         console.warn('%cScrub Slider divs must have a %cbackground image to work!%c >:[','color:cornflowerblue;','color:indianred;','color:cornflowerblue;');
                        }
+
+                       // handle resize
+                       let reziseFn = debounce(function(scrubImage) {
+                           let newSliderWidth = scrubSlider.offsetWidth;
+                           scrubCont.style.width = parseInt(newSliderWidth / 2) + "px";
+                           scrubImage.style.width = newSliderWidth + "px";
+                       }, 500);
+                       window.addEventListener('resize', function(e) {
+                           reziseFn(scrubImage);
+                       });
+
                     }
                     else if ( type == 'IMG' ) {
                        // clone div
@@ -95,6 +125,17 @@ function ScrubInitiate() {
                        scrubImage.style.width = sliderWidth + "px";
                        scrubImage.style.backgroundImage = 'url(' + imgSrc + ')';
                        scrubCont.append(scrubImage);
+
+                       // handle resize
+                       let reziseFn = debounce(function(scrubImage) {
+                           let newSliderWidth = scrubSlider.offsetWidth;
+                           scrubCont.style.width = parseInt(newSliderWidth / 2) + "px";
+                           scrubImage.style.width = newSliderWidth + "px";
+                       }, 500);
+                       window.addEventListener('resize', function(e) {
+                           reziseFn(scrubImage);
+                       });
+
                     }
                 }
                 for(let i=0; i < 2; i++) {
@@ -124,21 +165,6 @@ function ScrubInitiate() {
                     scrubHandle.classList.remove('handleOn');
                 }
 
-                // debounce (thanks to Underscore)
-                function debounce(func, wait, immediate) {
-                	var timeout;
-                	return function() {
-                		var context = this, args = arguments;
-                		var later = function() {
-                			timeout = null;
-                			if (!immediate) func.apply(context, args);
-                		};
-                		var callNow = immediate && !timeout;
-                		clearTimeout(timeout);
-                		timeout = setTimeout(later, wait);
-                		if (callNow) func.apply(context, args);
-                	};
-                };
                 // scrub slider main action fn
                 var mover = debounce(function(pos,full,slider) {
                     if ( scrubHandle ) {
@@ -150,7 +176,7 @@ function ScrubInitiate() {
                         let contentRight = slider.querySelectorAll('.scrub-right');
                            contentRight[0].style.width = ((shrink > 0) ? shrink : 0) + "px";
                     }
-                }, 0);
+                }, 1);
                 // add mousemove listener
                 scrubSlider.addEventListener('mousemove', function(e) {
                   let mousePosition = e.clientX - this.offsetLeft;

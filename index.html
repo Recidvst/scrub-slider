@@ -83,26 +83,25 @@
 
           <h3> Initiate </h3>
           <ul>
-              <li>Initiate a Scrub instance by calling <strong class="violet">Scrub()</strong> with a valid selector. This is best as a unique ID but a specific, unique class is fine too.</li>
+              <li>Initiate a Scrub instance by calling <strong class="violet">Scrub()</strong> with a valid selector. This is best as a unique ID but a unique class is fine too.</li>
               <br />
-              <li> If wanting to configure your slider, pass <strong class="violet">Scrub()</strong> an object with config options (see below).</li>
+              <li> If you wish to configure your slider, pass <strong class="violet">Scrub()</strong> an object with config options (see below).</li>
           </ul>
-
+      </div>
+      <div class="col-xs-12 options">
+      <h2> Settings </h2>
           <h3> Configure </h3>
           <p>
             You can configure your Scrub instance by passing your selector and some config parameters as an object. e.g: <br />
             <pre>
-Scrub({
-  <span>target:</span> #slider1,
-  <span>height:</span> 500,
-  <span>handle:</span> true,
-  <span>src:</span> ['https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg','https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg'],
-  <span>alt:</span> ['Image number 1 alt','Image number 2 alt']
-});</pre>
+    Scrub({
+    <span>target:</span> #slider1,
+    <span>height:</span> 500,
+    <span>handle:</span> true,
+    <span>src:</span> ['https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg','https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg'],
+    <span>alt:</span> ['Image number 1 alt','Image number 2 alt']
+    });</pre>
           </p>
-      </div>
-      <div class="col-xs-12 options">
-      <h2> Settings </h2>
           <p>
             Options are as follows:
             <ul>

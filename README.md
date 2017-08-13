@@ -1,12 +1,12 @@
-# scrub-slider
-Scrub-style slider component
+# Scrub Slider
+A lightweight javascript plugin that lets you display transition images with style.
 
 [Landing Page](https://recidvst.github.io/scrub-slider 'scrub landing')
 
-[POC on codepen](https://codepen.io/Recidvst/pen/WjybOa 'scrub poc')
+[Codepen POC](https://codepen.io/Recidvst/pen/WjybOa 'scrub poc')
 
 To-do:
-- Finish landing page.
-- Create as npm & yarn package.
+- Create as npm & yarn packages.
 - Test suite.
-- Resize bug.
+- Performance improvements.
+- Improve landing page.
