@@ -18,8 +18,8 @@ gulp.task('default', ['check', 'clean', 'dev sass', 'dist sass', 'dev scripts', 
 
 // Gulp Watch function
 gulp.task('watch', function() {
-  gulp.watch('scss/*.scss', ['sass']);
-  gulp.watch('js/*.js', ['scripts']);
+  gulp.watch('scss/*.scss', ['dev sass', 'dist sass']);
+  gulp.watch('js/*.js', ['dev scripts', 'dist scripts']);
   gulp.watch('*.html').on('change', browserSync.reload);
 })
 
