@@ -1,5 +1,4 @@
 /* Scrub Slider */
-// debounce(function(pos,full,slider) {
 
 // helper functions
 // object test

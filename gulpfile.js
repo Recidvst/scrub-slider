@@ -32,7 +32,7 @@ gulp.task('dist sass', function() {
     ])
     .pipe(sourcemaps.init())
     .pipe(autoprefixer({
-           browsers: ['last 2 versions'],
+           browsers: ['last 5 versions'],
            cascade: false
        }))
     .pipe(sass({includePaths: require('node-normalize-scss').includePaths}).on('error', gutil.log))
@@ -53,7 +53,7 @@ gulp.task('dev sass', function() {
     ])
     .pipe(sourcemaps.init())
     .pipe(autoprefixer({
-           browsers: ['last 2 versions'],
+           browsers: ['last 5 versions'],
            cascade: false
        }))
     .pipe(sass({includePaths: require('node-normalize-scss').includePaths}).on('error', gutil.log))
