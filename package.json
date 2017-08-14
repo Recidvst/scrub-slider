@@ -17,25 +17,17 @@
   },
   "homepage": "https://github.com/Recidvst/scrub-slider#readme",
   "devDependencies": {
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
     "bootstrap-grid": "^2.0.1",
     "browser-sync": "^2.18.8",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^6.1.2",
     "gulp-clean-css": "^3.0.4",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.5.1",
     "gulp-uglify": "^2.1.2",
-    "gulp-util": "^3.0.8",
-    "node-normalize-scss": "^3.0.0"
-  },
-  "dependencies": {
-    "babel-polyfill": "^6.23.0",
-    "systemjs": "^0.20.17"
+    "gulp-util": "^3.0.8"
   }
 }

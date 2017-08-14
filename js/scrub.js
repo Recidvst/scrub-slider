@@ -3,7 +3,7 @@
 // helper functions
 // object test
 var isObject = function(a) {
-    return (!!a) && (a.constructor === Object);
+    return (!!a) && (a.varructor === Object);
 };
 // debounce (thanks to Underscore)
 function debounce(func, wait, immediate) {
@@ -24,13 +24,13 @@ function debounce(func, wait, immediate) {
 function Scrub(scrubArg) {
 
     // check if simple call or config passed
-    if ( isObject(scrubArg) ) {
+    if ( isObject(scrubArg) || typeof scrubArg == 'object' ) {
         // set function default arguments
-          scrubArg.target = ( typeof scrubArg.target !== 'undefined' && isObject(scrubArg) ) ? scrubArg.target : null;
-          scrubArg.height = ( typeof scrubArg.height !== 'undefined' && isObject(scrubArg) ) ? scrubArg.height : '500px';
-          scrubArg.handle = ( typeof scrubArg.handle !== 'undefined' && isObject(scrubArg) ) ? scrubArg.handle : true;
-          scrubArg.src = ( typeof scrubArg.src !== 'undefined' && isObject(scrubArg) ) ? scrubArg.src : null;
-          scrubArg.alt = ( typeof scrubArg.alt !== 'undefined' && isObject(scrubArg) ) ? scrubArg.alt : null;
+          scrubArg.target = ( typeof scrubArg.target !== 'undefined' && (isObject(scrubArg) || typeof scrubArg == 'object' ) ) ? scrubArg.target : null;
+          scrubArg.height = ( typeof scrubArg.height !== 'undefined' && (isObject(scrubArg) || typeof scrubArg == 'object' ) ) ? scrubArg.height : '500px';
+          scrubArg.handle = ( typeof scrubArg.handle !== 'undefined' && (isObject(scrubArg) || typeof scrubArg == 'object' ) ) ? scrubArg.handle : true;
+          scrubArg.src = ( typeof scrubArg.src !== 'undefined' && (isObject(scrubArg) || typeof scrubArg == 'object' ) ) ? scrubArg.src : null;
+          scrubArg.alt = ( typeof scrubArg.alt !== 'undefined' && (isObject(scrubArg) || typeof scrubArg == 'object' ) ) ? scrubArg.alt : null;
 
         ScrubInitiate();
     }
@@ -40,13 +40,13 @@ function Scrub(scrubArg) {
 
 function ScrubInitiate() {
     // get chosen slider container
-    const scrubSlider = ( isObject(scrubArg) ) ? document.querySelectorAll(scrubArg.target)[0] : document.querySelectorAll(scrubArg)[0] ;
+    var scrubSlider = ( isObject(scrubArg) || typeof scrubArg == 'object' ) ? document.querySelectorAll(scrubArg.target)[0] : document.querySelectorAll(scrubArg)[0] ;
 
     try {
         function utilityFn(callback) {
 
           // avoid non-specific classes..
-          var scrubName = ( isObject(scrubArg) ) ? (scrubArg.target) : scrubArg;
+          var scrubName = ( isObject(scrubArg) || typeof scrubArg == 'object' ) ? (scrubArg.target) : scrubArg;
           scrubName = scrubName.replace("#", "");
           scrubName = scrubName.replace(".", "");
           if ( scrubName.indexOf('.') > -1 && document.querySelectorAll(scrubName).length > 1 ) {
@@ -55,22 +55,22 @@ function ScrubInitiate() {
 
             if ( scrubSlider != undefined ) {
               scrubSlider.className += " scrub-slider";
-              const sliderWidth = scrubSlider.offsetWidth;
+              var sliderWidth = scrubSlider.offsetWidth;
               // set height if given
               if ( scrubArg.height != null ) {
                 scrubSlider.style.height = scrubArg.height;
               }
 
                 // get chosen slider's images
-                let scrubChildren = scrubSlider.children;
+                var scrubChildren = scrubSlider.children;
 
                 function createScrubImages(el,type,index) {
                     if ( type == 'DIV' ) {
                        // clone div
-                       let scrubImage = el.cloneNode(true);
+                       var scrubImage = el.cloneNode(true);
                        el.parentNode.removeChild(el);
                        // inject scrub container
-                       let scrubCont = document.createElement('div');
+                       var scrubCont = document.createElement('div');
                        scrubCont.className = ( index == 0 ) ? "scrub-content scrub-left" : "scrub-content scrub-right";
                        scrubCont.style.width = parseInt(sliderWidth / 2) + "px";
                        scrubSlider.insertBefore(scrubCont,scrubSlider.firstChild);
@@ -82,18 +82,18 @@ function ScrubInitiate() {
                            }
                             // if src specified manually
                             if ( scrubArg.src != null ) {
-                                let imgSrc = ( index == 0 ) ? scrubArg.src[0] : scrubArg.src[1] ;
+                                var imgSrc = ( index == 0 ) ? scrubArg.src[0] : scrubArg.src[1] ;
                                 scrubImage.style.backgroundImage = 'url(' + imgSrc + ')';
                             }
-                       scrubCont.append(scrubImage);
+                       scrubCont.appendChild(scrubImage);
                        // need a background image..
                        if ( el.style.backgroundImage == '' ) {
                         console.warn('%cScrub Slider divs must have a %cbackground image to work!%c >:[','color:cornflowerblue;','color:indianred;','color:cornflowerblue;');
                        }
 
                        // handle resize
-                       let reziseFn = debounce(function(scrubImage) {
-                           let newSliderWidth = scrubSlider.offsetWidth;
+                       var reziseFn = debounce(function(scrubImage) {
+                           var newSliderWidth = scrubSlider.offsetWidth;
                            scrubCont.style.width = parseInt(newSliderWidth / 2) + "px";
                            scrubImage.style.width = newSliderWidth + "px";
                        }, 500);
@@ -104,15 +104,15 @@ function ScrubInitiate() {
                     }
                     else if ( type == 'IMG' ) {
                        // clone div
-                       let scrubImage = document.createElement('div');
-                       let imgSrc = el.getAttribute('src');
+                       var scrubImage = document.createElement('div');
+                       var imgSrc = el.getAttribute('src');
                             // if src specified manually
                             if ( scrubArg.src != null ) {
                                 imgSrc = ( index == 0 ) ? scrubArg.src[0] : scrubArg.src[1] ;
                             }
                        el.parentNode.removeChild(el);
                        // inject scrub container
-                       let scrubCont = document.createElement('div');
+                       var scrubCont = document.createElement('div');
                        scrubCont.className = ( index == 0 ) ? "scrub-content scrub-left" : "scrub-content scrub-right";
                        scrubCont.style.width = parseInt(sliderWidth / 2) + "px";
                            // if alt specified
@@ -123,11 +123,11 @@ function ScrubInitiate() {
                        // re-attach div
                        scrubImage.style.width = sliderWidth + "px";
                        scrubImage.style.backgroundImage = 'url(' + imgSrc + ')';
-                       scrubCont.append(scrubImage);
+                       scrubCont.appendChild(scrubImage);
 
                        // handle resize
-                       let reziseFn = debounce(function(scrubImage) {
-                           let newSliderWidth = scrubSlider.offsetWidth;
+                       var reziseFn = debounce(function(scrubImage) {
+                           var newSliderWidth = scrubSlider.offsetWidth;
                            scrubCont.style.width = parseInt(newSliderWidth / 2) + "px";
                            scrubImage.style.width = newSliderWidth + "px";
                        }, 500);
@@ -137,8 +137,8 @@ function ScrubInitiate() {
 
                     }
                 }
-                for(let i=0; i < 2; i++) {
-                  let child = scrubChildren[i];
+                for(var i=0; i < 2; i++) {
+                  var child = scrubChildren[i];
                   if ( scrubChildren[i] && child.tagName ) {
                     createScrubImages( scrubChildren[i], child.tagName, i );
                   }
@@ -153,7 +153,7 @@ function ScrubInitiate() {
 
             utilityFn(function(scrubSlider) {
                 // add scrub control/handle
-                const scrubHandle = document.createElement('div');
+                var scrubHandle = document.createElement('div');
                 scrubHandle.className= "sliding handleOn ";
                 scrubHandle.innerHTML = '<span class="sliding-left"></span><span class="sliding-right"></span>';
                 scrubSlider.appendChild(scrubHandle);
@@ -167,19 +167,19 @@ function ScrubInitiate() {
                 // scrub slider main action fn
                 var mover = debounce(function(pos,full,slider) {
                     if ( scrubHandle ) {
-                        let shrink = full - pos;
-                        let sliding = slider.querySelectorAll('.sliding');
+                        var shrink = full - pos;
+                        var sliding = slider.querySelectorAll('.sliding');
                            sliding[0].style.left = ((pos > 0) ? pos : 0) + "px";
-                        let contentLeft = slider.querySelectorAll('.scrub-left');
+                        var contentLeft = slider.querySelectorAll('.scrub-left');
                            contentLeft[0].style.width = ((pos > 0) ? pos : 0) + "px";
-                        let contentRight = slider.querySelectorAll('.scrub-right');
+                        var contentRight = slider.querySelectorAll('.scrub-right');
                            contentRight[0].style.width = ((shrink > 0) ? shrink : 0) + "px";
                     }
                 }, 1);
                 // add mousemove listener
                 scrubSlider.addEventListener('mousemove', function(e) {
-                  let mousePosition = e.clientX - this.offsetLeft;
-                  let fullWidth = scrubSlider.offsetWidth;
+                  var mousePosition = e.clientX - this.offsetLeft;
+                  var fullWidth = scrubSlider.offsetWidth;
                   mover(mousePosition,fullWidth,scrubSlider);
                 });
             });
