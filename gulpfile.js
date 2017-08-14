@@ -70,7 +70,7 @@ gulp.task('dev sass', function() {
 gulp.task('dist scripts', function() {
     return gulp.src(
       [
-      'js/scrub.js'
+      'js/testbabel.js'
       ])
       .pipe(sourcemaps.init())
       .pipe(babel({
