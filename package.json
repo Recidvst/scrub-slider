@@ -1,8 +1,8 @@
 {
-  "name": "scrub-slider",
+  "name": "scrub slider",
   "version": "1.0.0",
-  "description": "Scrub Slider Widget",
-  "main": "example.js",
+  "description": "Scrub Slider",
+  "main": "Scrub.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Recidvst/scrub-slider.git"
   },
-  "author": "Chris Snowden",
+  "author": "Chris Snowden <cdsnowden@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Recidvst/scrub-slider/issues"

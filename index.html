@@ -40,7 +40,7 @@
             -  Vanilla JS with no dependencies (not even jQuery)!  -
         </p>
         <p>
-            -  Just 28kb dist minified.  -
+            -  Just 29kb dist minified.  -
         </p>
         <p>
             -  Support for using multiple sliders on a page.  -
@@ -76,9 +76,13 @@
 
           <h3> Initiate </h3>
           <ul>
-              <li>Initiate a Scrub instance by calling <strong class="violet">Scrub()</strong> with a valid selector. This is best as a unique ID but a unique class is fine too.</li>
+              <li> Scrub needs to be passed a containing element and two image objects. </li>
+              <br />
+              <li>Initiate a Scrub instance by calling <strong class="violet">Scrub()</strong> with a valid selector (of the parent element). This is best as an ID but a unique class is fine too.</li>
               <br />
               <li> If you wish to configure your slider, pass <strong class="violet">Scrub()</strong> an object with config options (see below).</li>
+              <br />
+              <li>The container should have a width. You have a choice for the two image children -> divs with background-images or imgs with src set are preferred, but you can also use a different tag and pass the src via config.</li>
           </ul>
       </div>
       <div class="col-xs-12 options">
@@ -100,7 +104,7 @@
             <ul>
                 <li>
                     <h4> Target </h4>
-                    <strong> Purpose: </strong> This is the item which you wish to becomae a Scrub slider! Pass the id or unique class of a container element. <br />
+                    <strong> Purpose: </strong> This is the item which you wish to become a Scrub slider! Pass the id or unique class of a container element. <br />
                     <strong> Type: </strong> string <br />
                     <strong> Default: </strong> null <br />
                     <strong> Required: </strong> Yes.
