@@ -1,4 +1,6 @@
-[![npm](https://img.shields.io/npm/v/npm.svg)]() [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![Github file size](https://img.shields.io/github/size/webcaetano/craft/build/craft.min.js.svg)]()
+[![npm](https://img.shields.io/npm/v/recidvst/scrub-slider.svg)]() [![license](https://img.shields.io/github/license/recidvst/scrub-slider.svg)]() [![Github file size](https://img.shields.io/github/size/recidvst/scrub-slider/dist.svg)]()
+[![NPM](https://nodei.co/npm/scrub-slider.png)](https://npmjs.org/package/scrub-slider>)
+
 # Scrub Slider
 A lightweight javascript plugin that lets you display transition images with style.
 
