@@ -16,7 +16,6 @@ Scrub({
 
 Scrub('#slider2');
 
-// Scrub('.slider3');
 Scrub({
     target: '.slider3',
     height: '800px'

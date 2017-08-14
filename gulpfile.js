@@ -12,6 +12,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
 var browserSync = require('browser-sync').create();
 var babel = require("gulp-babel");
+var autoprefixer = require('gulp-autoprefixer');
 
 // Gulp Default tasks
 gulp.task('default', ['check', 'clean', 'dev sass', 'dist sass', 'dev scripts', 'dist scripts', 'browser-sync', 'watch']);
@@ -30,7 +31,11 @@ gulp.task('dist sass', function() {
     'scss/scrub.scss'
     ])
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', gutil.log))
+    .pipe(autoprefixer({
+           browsers: ['last 2 versions'],
+           cascade: false
+       }))
+    .pipe(sass({includePaths: require('node-normalize-scss').includePaths}).on('error', gutil.log))
     .pipe(cleancss())
     .pipe(concat('Scrub.css'))
     .pipe(rename({
@@ -47,7 +52,11 @@ gulp.task('dev sass', function() {
     'scss/example.scss'
     ])
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', gutil.log))
+    .pipe(autoprefixer({
+           browsers: ['last 2 versions'],
+           cascade: false
+       }))
+    .pipe(sass({includePaths: require('node-normalize-scss').includePaths}).on('error', gutil.log))
     .pipe(cleancss())
     .pipe(concat('ScrubDev.css'))
     .pipe(rename({
