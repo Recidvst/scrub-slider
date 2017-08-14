@@ -73,7 +73,9 @@ gulp.task('dist scripts', function() {
       'js/scrub.js'
       ])
       .pipe(sourcemaps.init())
-      .pipe(babel().on('error', gutil.log))
+      .pipe(babel({
+        presets: ['es2015']
+      }).on('error', gutil.log))
       .pipe(uglify().on('error', gutil.log))
       .pipe(concat('Scrub.js'))
       .pipe(rename({
@@ -89,7 +91,9 @@ gulp.task('dev scripts', function() {
       'js/example.js'
       ])
       .pipe(sourcemaps.init())
-      .pipe(babel().on('error', gutil.log))
+      .pipe(babel({
+        presets: ['es2015']
+      }).on('error', gutil.log))
       .pipe(uglify().on('error', gutil.log))
       .pipe(concat('ScrubDev.js'))
       .pipe(rename({
