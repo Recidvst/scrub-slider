@@ -14,8 +14,8 @@ To-do:
 ## Get Scrub Slider
 
 ### Download
-- Download the Scrub Slider dist files from [Github](https://github.com/Recidvst/scrub-slider/archive/master.zip 'Github download') or from [NPM](https://www.npmjs.com/package/scrub-slider 'npm download') or [Yarn](https://yarnpkg.com/en/package/scrub-slider 'yarn download') (coming soon..)
-- Include the minified Scrub.min.js and Scrub.min.css files in the usual fashion...
+- Download the Scrub Slider dist files from [Github](https://github.com/Recidvst/scrub-slider/archive/master.zip 'Github download') or from [NPM](https://www.npmjs.com/package/scrub-slider 'npm download') or [Yarn](https://yarnpkg.com/en/package/scrub-slider 'yarn download').
+- Include the minified js and css files from the dist folder in the usual fashion...
 
 ### Initiate
 - Scrub needs to be passed a containing element and two image objects.
