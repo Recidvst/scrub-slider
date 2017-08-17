@@ -3,7 +3,7 @@
 // helper functions
 // object test
 var isObject = function(a) {
-    return (!!a) && (a.varructor === Object);
+    return (!!a) && (a.constructor === Object);
 };
 // debounce (thanks to Underscore)
 function debounce(func, wait, immediate) {
