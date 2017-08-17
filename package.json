@@ -1,6 +1,6 @@
 {
   "name": "scrub-slider",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Scrub Slider",
   "main": "Scrub.min.js",
   "scripts": {
