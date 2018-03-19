@@ -5,9 +5,9 @@
 # Scrub Slider
 A lightweight javascript plugin that lets you display transition images with style.
 
-[Landing Page](https://recidvst.github.io/scrub-slider 'scrub landing')
+[Demo Page](https://recidvst.github.io/scrub-slider 'scrub demo')
 
-[Codepen POC](https://codepen.io/Recidvst/pen/WjybOa 'scrub poc')
+[Codepen original POC](https://codepen.io/Recidvst/pen/WjybOa 'scrub original poc')
 
 To-do:
 - Test suite.
