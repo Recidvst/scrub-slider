@@ -1,180 +1,287 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="Scrub Slider">
-    <meta name="description" content="Scrub Slider - A lightweight javascript plugin that lets you display transition images with style. Open-source front-end slider.">
-    <meta name="author" content="Recidvst">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="title" content="Scrub Slider" />
+    <meta
+      name="description"
+      content="Scrub Slider - A lightweight javascript plugin that lets you display transition images with style. Open-source front-end slider."
+    />
+    <meta name="author" content="Recidvst" />
 
     <title>Scrub Slider</title>
 
-    <link href="dist/Scrub.min.css" rel="stylesheet">
-    <link href="dist/ScrubDev.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="dist/styles.css" rel="stylesheet" />
+    <link href="src/scss/example.scss" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-79424773-3', 'auto');
-      ga('send', 'pageview');
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "https://www.google-analytics.com/analytics.js",
+        "ga",
+      );
+      ga("create", "UA-79424773-3", "auto");
+      ga("send", "pageview");
     </script>
   </head>
 
-<body>
+  <body>
+    <main class="container-fluid">
+      <header class="row heading">
+        <div class="col-xs-12">
+          <h1 class="text-center">Scrub Slider</h1>
+          <h3 class="text-center">
+            Scrub Slider is a lightweight javascript plugin that lets you
+            display transition images with style.
+          </h3>
+        </div>
+      </header>
 
-<main class="container-fluid">
+      <section class="row hero-slider">
+        <div class="col-xs-12 example-slider-hero" id="slider1">
+          <div
+            style="
+              background-image: url(https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg);
+            "
+          ></div>
+          <div
+            style="
+              background-image: url(https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg);
+            "
+          ></div>
+        </div>
+      </section>
 
-  <header class="row heading">
-    <div class="col-xs-12">
-      <h1 class="text-center"> Scrub Slider </h1>
-      <h3 class="text-center"> Scrub Slider is a lightweight javascript plugin that lets you display transition images with style.</h3>
-    </div>
-  </header>
-
-  <section class="row hero-slider">
-    <div class="col-xs-12 example-slider-hero" id="slider1">
-          <div style="background-image: url(https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg)"></div>
-          <div style="background-image: url(https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg)"></div>
-    </div>
-  </section>
-
-  <section class="row why-scrub">
-    <div class="col-xs-12 text-center">
-        <h2> Why Scrub? </h2>
-        <p>
-            -  Vanilla JS with no dependencies  -
-        </p>
-        <p>
-            -  Just 29kb dist minified  -
-        </p>
-        <p>
-            -  Support for using multiple sliders on a page  -
-        </p>
-        <p>
-            -  Simple configuration options and multiple implementation methods  -
-        </p>
-        <p>
-            -  IE9+ supported  -
-        </p>
-        <p>
-            -  Available on NPM and Yarn  -
-        </p>
-    </div>
-  </section>
-
-  <section class="row more-examples">
-      <div class="col-xs-12">
-            <div class="example-slider-50" id="slider2">
-                <img src="https://raw.github.com/Recidvst/recidvst-images/master/fierce-red-eye-owl-min.jpg" alt="" title=""/>
-                <img src="https://raw.github.com/Recidvst/recidvst-images/master/fierce-red-eye-owl-inverted-min.jpg" alt="" title=""/>
-            </div>
-      </div>
-  </section>
-
-  <section class="row how-to">
-      <div class="col-xs-12 get-started">
-          <h2> Getting Started </h2>
-
-          <h3> Download </h3>
-          <ul>
-              <li>Download the Scrub Slider dist files from <a href="https://github.com/Recidvst/scrub-slider" title="Scrub Slider Github pages">Github</a> or from <a href="https://www.npmjs.com/package/scrub-slider" title="Scrub Slider NPM page">NPM</a> or <a href="https://yarnpkg.com/en/package/scrub-slider" title="Scrub Slider Yarn page">Yarn</a></li>
-              <br />
-              <li>Include the minified Scrub js and css files in the usual fashion..</li>
-          </ul>
-
-          <h3> Initiate </h3>
-          <ul>
-              <li> Scrub needs to be passed a containing element and two image objects. </li>
-              <br />
-              <li>Initiate a Scrub instance by calling <strong class="violet">Scrub()</strong> with a valid selector (of the parent element). This is best as an ID but a unique class is fine too.</li>
-              <br />
-              <li> If you wish to configure your slider, pass <strong class="violet">Scrub()</strong> an object with config options (see below).</li>
-              <br />
-              <li>The container should have a width. You have a choice for the two image children -> divs with background-images or imgs with src set are preferred, but you can also use a different tag and pass the src via config.</li>
-          </ul>
-      </div>
-      <div class="col-xs-12 options">
-      <h2> Settings </h2>
-          <h3> Configure </h3>
+      <section class="row why-scrub">
+        <div class="col-xs-12 text-center">
+          <h2>Why Scrub?</h2>
+          <p>- Vanilla JS with no dependencies -</p>
+          <p>- Just 11.5 kb to be imported -</p>
+          <p>- Support for using multiple sliders on a page -</p>
           <p>
-            You can configure your Scrub instance by passing your selector and some config parameters as an object. e.g: <br />
+            - Simple configuration options and multiple implementation methods -
+          </p>
+          <p>- IE9+ supported -</p>
+          <p>- Available on NPM and Yarn -</p>
+        </div>
+      </section>
+
+      <section class="row more-examples">
+        <div class="col-xs-12">
+          <div class="example-slider-50" id="slider2">
+            <img
+              src="https://raw.github.com/Recidvst/recidvst-images/master/fierce-red-eye-owl-min.jpg"
+              alt="Red eyed owl image"
+              title="Red eyed owl image"
+            />
+            <img
+              src="https://raw.github.com/Recidvst/recidvst-images/master/fierce-red-eye-owl-inverted-min.jpg"
+              alt="Red eyed owl image inverted"
+              title="Red eyed owl image inverted"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="row how-to">
+        <div class="col-xs-12 get-started">
+          <h2>Getting Started</h2>
+
+          <h3>Download</h3>
+          <ul>
+            <li>
+              Download the Scrub Slider dist files from
+              <a
+                href="https://github.com/Recidvst/scrub-slider"
+                title="Scrub Slider Github pages"
+                >Github</a
+              >
+              or from
+              <a
+                href="https://www.npmjs.com/package/scrub-slider"
+                title="Scrub Slider NPM page"
+                >NPM</a
+              >
+              or
+              <a
+                href="https://yarnpkg.com/en/package/scrub-slider"
+                title="Scrub Slider Yarn page"
+                >Yarn</a
+              >
+            </li>
+            <br />
+            <li>
+              Include the minified Scrub js and css files in the usual fashion..
+            </li>
             <pre>
+              `npm install scrub-slider`
+            </pre>
+            <pre>
+              `import Scrub from "scrub-slider"`
+            </pre>
+          </ul>
+
+          <h3>Initiate</h3>
+          <ul>
+            <li>
+              Scrub needs to be passed a containing element and two image
+              objects.
+            </li>
+            <br />
+            <li>
+              Initiate a Scrub instance by calling
+              <strong class="violet">Scrub()</strong> with a valid selector (of
+              the parent element). This is best as an ID but a unique class is
+              fine too.
+            </li>
+            <br />
+            <li>
+              If you wish to configure your slider, pass
+              <strong class="violet">Scrub()</strong> an object with config
+              options (see below).
+            </li>
+            <br />
+            <li>
+              The container should have a width. You have a choice for the two
+              image children -> divs with background-images or imgs with src set
+              are preferred, but you can also use a different tag and pass the
+              src via config.
+            </li>
+          </ul>
+        </div>
+        <div class="col-xs-12 options">
+          <h2>Settings</h2>
+          <h3>Configure</h3>
+          <p>
+            You can configure your Scrub instance by passing your selector and
+            some config parameters as an object. e.g: <br />
+          </p>
+          <pre>
     Scrub({
         <span>target:</span> '#slider1',
         <span>height:</span> '500',
         <span>handle:</span> true,
         <span>src:</span> ['https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg','https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg'],
         <span>alt:</span> ['Image number 1 alt','Image number 2 alt']
-    });</pre>
-          </p>
-          <p>
-            The available options are as follows:
-            <ul>
-                <li>
-                    <h4> Target </h4>
-                    <strong> Purpose: </strong> This is the item which you wish to become a Scrub slider! Pass the id or unique class of a container element. <br />
-                    <strong> Type: </strong> string <br />
-                    <strong> Default: </strong> null <br />
-                    <strong> Required: </strong> Yes.
-                </li>
-                <li>
-                    <h4> Height </h4>
-                    <strong> Purpose: </strong> This is the height of your Scrub instance. Defaults to 500px. Specify height in pixels. <br />
-                    <strong> Type: </strong> string <br />
-                    <strong> Default: </strong> 500px <br />
-                    <strong> Required: </strong> No. But recommended.
-                </li>
-                <li>
-                    <h4> Handle </h4>
-                    <strong> Purpose: </strong> This is the switch for the circular handle control on the slider's dividing line. Set to false to hide. If you want to hide the vertical bar as well, use css on '.sliding'.<br />
-                    <strong> Type: </strong> bool <br />
-                    <strong> Default: </strong> true <br />
-                    <strong> Required: </strong> No.
-                </li>
-                <li>
-                    <h4> Src </h4>
-                    <strong> Purpose: </strong> Alternate method of specifying slider images. Pass an array of two strings containing an img src. Left then right.<br />
-                    <strong> Type: </strong> array <br />
-                    <strong> Default: </strong> null <br />
-                    <strong> Required: </strong> No. As long as the element you want to instantiate as a Scrub slider is an image or a div with a valid background-image style.
-                </li>
-                <li>
-                    <h4> Alt </h4>
-                    <strong> Purpose: </strong> Add an alt tag to the slider. Pass an array of two strings describing each image. Left then right. <br />
-                    <strong> Type: </strong> array <br />
-                    <strong> Default: </strong> null <br />
-                    <strong> Required: </strong> No.
-                </li>
-            </ul>
-          </p>
-      </div>
-
-  </section>
-
-  <footer class="row text-center">
-    <div class="col-xs-12">
-        <a class="btn" href="https://github.com/Recidvst/scrub-slider/archive/master.zip" title="Download Scrub Slider now.">Download Now</a>
-        <a class="btn" href="https://github.com/Recidvst/scrub-slider" title="Get Scrub Slider via Github">See on Github</a>
-    </div>
-
-    <div class="col-xs-12">
-        <div class="example-slider-75 slider3" id="slider3">
-            <div style="background-image: url(https://raw.github.com/Recidvst/recidvst-images/master/nuzzling-parrots.jpg)"></div>
-            <img src="https://raw.github.com/Recidvst/recidvst-images/master/two-parrots.jpg" alt="" title=""/>
+    });</pre
+          >
+          <p>The available options are as follows:</p>
+          <ul>
+            <li>
+              <h4>Target</h4>
+              <strong> Purpose: </strong> This is the item which you wish to
+              become a Scrub slider! Pass the id or unique class of a container
+              element. <br />
+              <strong> Type: </strong> string <br />
+              <strong> Default: </strong> null <br />
+              <strong> Required: </strong> Yes.
+            </li>
+            <li>
+              <h4>Height</h4>
+              <strong> Purpose: </strong> This is the height of your Scrub
+              instance. Defaults to 500px. Specify height in pixels. <br />
+              <strong> Type: </strong> string <br />
+              <strong> Default: </strong> 500px <br />
+              <strong> Required: </strong> No. But recommended.
+            </li>
+            <li>
+              <h4>Handle</h4>
+              <strong> Purpose: </strong> This is the switch for the circular
+              handle control on the slider's dividing line. Set to false to
+              hide. If you want to hide the vertical bar as well, use css on
+              '.sliding'.<br />
+              <strong> Type: </strong> bool <br />
+              <strong> Default: </strong> true <br />
+              <strong> Required: </strong> No.
+            </li>
+            <li>
+              <h4>Src</h4>
+              <strong> Purpose: </strong> Alternate method of specifying slider
+              images. Pass an array of two strings containing an img src. Left
+              then right.<br />
+              <strong> Type: </strong> array <br />
+              <strong> Default: </strong> null <br />
+              <strong> Required: </strong> No. As long as the element you want
+              to instantiate as a Scrub slider is an image or a div with a valid
+              background-image style.
+            </li>
+            <li>
+              <h4>Alt</h4>
+              <strong> Purpose: </strong> Add an alt tag to the slider. Pass an
+              array of two strings describing each image. Left then right.
+              <br />
+              <strong> Type: </strong> array <br />
+              <strong> Default: </strong> null <br />
+              <strong> Required: </strong> No.
+            </li>
+          </ul>
         </div>
-    </div>
+      </section>
 
-    <div class="col-xs-12">
-      <p> Made by Chris Snowden | Under MIT license | <a href="https://github.com/Recidvst/scrub-slider" title="Scrub Slider on Github">See on Github</a> </p>
-    </div>
-  </footer>
+      <footer class="row text-center">
+        <div class="col-xs-12">
+          <a
+            class="btn"
+            href="https://github.com/Recidvst/scrub-slider/archive/master.zip"
+            title="Download Scrub Slider now."
+            >Download Now</a
+          >
+          <a
+            class="btn"
+            href="https://github.com/Recidvst/scrub-slider"
+            title="Get Scrub Slider via Github"
+            >See on Github</a
+          >
+        </div>
 
-</main>
+        <div class="col-xs-12">
+          <div class="example-slider-75 slider3" id="slider3">
+            <div
+              style="
+                background-image: url(https://raw.github.com/Recidvst/recidvst-images/master/nuzzling-parrots.jpg);
+              "
+            ></div>
+            <img
+              src="https://raw.github.com/Recidvst/recidvst-images/master/two-parrots.jpg"
+              alt="Image of two parrots nuzzling"
+              title="Image of two parrots nuzzling"
+            />
+          </div>
+        </div>
 
-<script src="dist/Scrub.min.js"></script>
-<script src="dist/ScrubDev.min.js"></script>
-</body>
+        <div class="col-xs-12">
+          <p>
+            Made by Chris Snowden | Under MIT license |
+            <a
+              href="https://github.com/Recidvst/scrub-slider"
+              title="Scrub Slider on Github"
+              >See on Github</a
+            >
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script type="module" src="dist/browser.js"></script>
+    <script type="module" src="src/js/example.js"></script>
+  </body>
 </html>
