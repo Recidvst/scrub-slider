@@ -51,6 +51,7 @@ node_modules/
 jspm_packages/
 
 .parcel-cache
+local
 
 # TypeScript v1 declaration files
 typings/
