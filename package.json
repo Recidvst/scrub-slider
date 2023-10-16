@@ -2,15 +2,18 @@
   "name": "scrub-slider",
   "version": "1.1.1",
   "description": "Scrub Slider",
-  "source": "js/scrub.js",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
-  "browser": "dist/browser.js",
-  "css": "dist/styles.css",
+  "main": "dist/scrub.cjs.js",
+  "module": "dist/scrub.esm.js",
+  "browser": "dist/scrub.umd.js",
+  "umd": "dist/scrub.umd.js",
+  "iife": "dist/scrub.umd.js",
+  "css": "dist/css/scrub.css",
+  "styles": "dist/css/scrub.css",
   "scripts": {
     "prettier:fix": "npx prettier . --write",
-    "build": "parcel build --dist-dir dist",
-    "dev": "parcel index.html --dist-dir local",
+    "build": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c && npm run styles && npm run example",
+    "styles": "node-sass src/scss/example.scss -o dist/css && cleancss dist/css/example.css -o dist/css/example.min.css",
+    "example": "babel src/js/example.js --out-file dist/example.js",
     "package:pack": "npm pack",
     "package:minor": "npm version minor",
     "package:patch": "npm version patch"
@@ -26,32 +29,30 @@
   },
   "homepage": "https://github.com/Recidvst/scrub-slider#readme",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.10.0",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/register": "^7.18.9",
+    "autoprefixer": "^10.4.12",
+    "babel-plugin-add-module-exports": "^1.0.4",
     "bootstrap-grid": "^2.0.1",
+    "clean-css-cli": "^5.6.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
     "husky": "^8.0.3",
+    "node-sass": "^7.0.3",
     "npm-check-updates": "^16.14.5",
-    "parcel": "^2.10.0",
     "prettier": "^3.0.3",
-    "pretty-quick": "^3.1.3"
-  },
-  "browserslist": "defaults, maintained node versions, IE >= 9",
-  "sideEffects": "true",
-  "targets": {
-    "css": {
-      "source": "src/scss/scrub.scss",
-      "optimize": true
-    },
-    "browser": {
-      "source": "src/js/scrub.js",
-      "optimize": false
-    },
-    "module": {
-      "source": "src/js/scrub.js",
-      "optimize": false
-    },
-    "main": {
-      "source": "src/js/scrub.js",
-      "optimize": false
-    }
+    "pretty-quick": "^3.1.3",
+    "rollup": "^2.79.1",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-node-resolve": "^4.2.3",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-uglify-es": "0.0.1",
+    "sass": "^1.69.3"
   }
 }

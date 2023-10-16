@@ -1,6 +1,8 @@
 index.html
-src/js/example.js
-src/scss/example.scss
+src/js/example*.js
+src/scss/example*.scss
+dist/example*.js
+dist/css/example*.css
 local
 
 # setup

@@ -13,8 +13,8 @@
 
     <title>Scrub Slider</title>
 
-    <link href="dist/styles.css" rel="stylesheet" />
-    <link href="src/scss/example.scss" rel="stylesheet" />
+    <link href="dist/css/scrub.css" rel="stylesheet" />
+    <link href="dist/css/example.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
@@ -50,8 +50,7 @@
         <div class="col-xs-12">
           <h1 class="text-center">Scrub Slider</h1>
           <h3 class="text-center">
-            Scrub Slider is a lightweight javascript plugin that lets you
-            display transition images with style.
+            A lightweight javascript library that lets you 'scrub' transition between two images with style.
           </h3>
         </div>
       </header>
@@ -75,7 +74,7 @@
         <div class="col-xs-12 text-center">
           <h2>Why Scrub?</h2>
           <p>- Vanilla JS with no dependencies -</p>
-          <p>- Just 11.5 kb to be imported -</p>
+          <p>- Only around 10.5 kb to be imported -</p>
           <p>- Support for using multiple sliders on a page -</p>
           <p>
             - Simple configuration options and multiple implementation methods -
@@ -109,7 +108,7 @@
           <h3>Download</h3>
           <ul>
             <li>
-              Download the Scrub Slider dist files from
+              Install the package (or download the dist files manually) from
               <a
                 href="https://github.com/Recidvst/scrub-slider"
                 title="Scrub Slider Github pages"
@@ -130,14 +129,8 @@
             </li>
             <br />
             <li>
-              Include the minified Scrub js and css files in the usual fashion..
+              Include the js and css in your application by either importing the module or using the UMD/IIFE output via a script tag.
             </li>
-            <pre>
-              `npm install scrub-slider`
-            </pre>
-            <pre>
-              `import Scrub from "scrub-slider"`
-            </pre>
           </ul>
 
           <h3>Initiate</h3>
@@ -281,7 +274,8 @@
       </footer>
     </main>
 
-    <script type="module" src="dist/browser.js"></script>
-    <script type="module" src="src/js/example.js"></script>
+    <script src="dist/scrub.iife.js"></script>
+    <script src="src/js/example.js"></script>
+<!--    <script type="module" src="src/js/example.js"></script>-->
   </body>
 </html>

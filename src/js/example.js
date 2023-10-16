@@ -1,4 +1,4 @@
-import Scrub from "./scrub";
+// import Scrub from "../../dist/scrub.esm";
 
 // setting height for hero example.
 var a = document.getElementById("slider1");

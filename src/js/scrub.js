@@ -1,5 +1,7 @@
 /* Scrub Slider */
 
+import '../scss/scrub.scss'
+
 // helper functions
 // object test
 var isObject = function (a) {
