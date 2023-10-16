@@ -1,0 +1,41 @@
+{
+  "presets": [
+      [
+      "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current",
+            "browsers": [
+              "last 5 versions",
+              "not ie <= 8"
+            ]
+          },
+          "modules": false
+        }
+      ]
+  ],
+  "plugins": [
+    "add-module-exports"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+          [
+          "@babel/preset-env",
+            {
+              "targets": {
+                "node": "current",
+                "browsers": [
+                  "last 5 versions",
+                  "not ie <= 8"
+                ]
+              }
+            }
+          ]
+      ],
+      "plugins": [
+        "add-module-exports"
+      ]
+    }
+  }
+}

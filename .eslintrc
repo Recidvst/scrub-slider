@@ -1,0 +1,28 @@
+{
+  "extends": "eslint:recommended",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "window": true,
+    "ga": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "no-console": ["off"],
+    "no-tabs": ["off"],
+    "indent": ["off"],
+    "eol-last": "off",
+    "func-names": ["off"],
+    "max-len": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "no-shadow": ["error", { "hoist": "never" }],
+    "no-unused-vars": ["off"],
+    "import/prefer-default-export": ["off"]
+  }
+}
