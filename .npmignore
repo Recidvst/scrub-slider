@@ -2,7 +2,7 @@ index.html
 src/js/example*.js
 src/scss/example*.scss
 dist/example*.js
-dist/css/example*.css
+dist/example*.css
 local
 
 # setup
@@ -12,10 +12,16 @@ package-lock.json
 .babelrc
 .editorconfig
 .prettierignore
+.prettierrc
+.husky
 .travis.yml
 .coveralls.yml
 .gitignore
 .parcel-cache
+rollup.config.mjs
+
+# example
+example
 
 # dev
 favicon.ico

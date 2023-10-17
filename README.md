@@ -6,13 +6,13 @@
 
 A lightweight javascript library that lets you 'scrub' transition between two images with style.
 
-[Demo Page](https://recidvst.github.io/scrub-slider "scrub demo")
+[Demo Page](https://recidvst.github.io/scrub-slider 'scrub demo')
 
 ## Get Scrub Slider
 
 ### Download
 
-- Install the package (or download the dist files manually) from [Github](https://github.com/Recidvst/scrub-slider/archive/master.zip "Github download") or from [NPM](https://www.npmjs.com/package/scrub-slider "npm download") or [Yarn](https://yarnpkg.com/en/package/scrub-slider "yarn download").
+- Install the package (or download the dist files manually) from [Github](https://github.com/Recidvst/scrub-slider/archive/master.zip 'Github download') or from [NPM](https://www.npmjs.com/package/scrub-slider 'npm download') or [Yarn](https://yarnpkg.com/en/package/scrub-slider 'yarn download').
 - Include the js and css in your application:
 
 ### Install
@@ -26,7 +26,7 @@ npm install scrub-slider
 ```
 
 ```js
-import Scrub from "scrub-slider";
+import Scrub from 'scrub-slider'
 ```
 
 Or consume the module as UMD/IIFE
@@ -40,17 +40,17 @@ Or consume the module as UMD/IIFE
 Either import the CSS into your JS/CSS:
 
 ```js
-import "scrub-slider/dist/css/scrub.css";
+import 'scrub-slider/dist/scrub.css'
 ```
 
 ```scss
-@import "scrub-slider/dist/css/scrub.css";
+@import 'scrub-slider/dist/scrub.css';
 ```
 
 Or include it the old fashioned way:
 
 ```html
-<link href="dist/css/scrub.css" rel="stylesheet" />
+<link href="dist/scrub.css" rel="stylesheet" />
 ```
 
 ### Initiate
