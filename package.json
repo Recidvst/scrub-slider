@@ -28,6 +28,18 @@
   "bugs": {
     "url": "https://github.com/Recidvst/scrub-slider/issues"
   },
+  "keywords": [
+    "slider",
+    "carousel",
+    "slideshow",
+    "javascript",
+    "gallery",
+    "lightweight",
+    "vanilla",
+    "responsive",
+    "scrubber",
+    "scrub"
+  ],
   "homepage": "https://github.com/Recidvst/scrub-slider#readme",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
