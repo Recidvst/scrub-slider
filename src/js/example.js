@@ -20,9 +20,4 @@ Scrub({
 
 Scrub('#slider2')
 
-Scrub({
-  target: '.slider3',
-  height: '800px',
-})
-
 // Scrub('nonexistent');

@@ -18,9 +18,5 @@ Scrub({
   alt: ['Image number 1 alt', 'Image number 2 alt'],
 })
 Scrub('#slider2')
-Scrub({
-  target: '.slider3',
-  height: '800px',
-})
 
 // Scrub('nonexistent');

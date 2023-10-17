@@ -99,12 +99,16 @@ var Scrub = (function () {
           }
           if (scrubSlider != undefined) {
             var createScrubImages = function createScrubImages(el, type, index) {
+              var scrubImage
+              var imgSrc
+              var scrubCont
+              var resizeFn
               if (type == 'DIV') {
                 // clone div
-                var scrubImage = el.cloneNode(true)
+                scrubImage = el.cloneNode(true)
                 el.parentNode.removeChild(el)
                 // inject scrub container
-                var scrubCont = document.createElement('div')
+                scrubCont = document.createElement('div')
                 scrubCont.className =
                   index == 0 ? 'scrub-content scrub-left' : 'scrub-content scrub-right'
                 scrubCont.style.width = parseInt(sliderWidth / 2) + 'px'
@@ -117,7 +121,7 @@ var Scrub = (function () {
                 }
                 // if src specified manually
                 if (scrubArg.src != null) {
-                  var imgSrc = index == 0 ? scrubArg.src[0] : scrubArg.src[1]
+                  imgSrc = index == 0 ? scrubArg.src[0] : scrubArg.src[1]
                   scrubImage.style.backgroundImage = 'url(' + imgSrc + ')'
                 }
                 scrubCont.appendChild(scrubImage)
@@ -132,25 +136,25 @@ var Scrub = (function () {
                 }
 
                 // handle resize
-                var reziseFn = debounce(function (scrubImage) {
+                var reziseFn = debounce(function (img) {
                   var newSliderWidth = scrubSlider.offsetWidth
                   scrubCont.style.width = parseInt(newSliderWidth / 2) + 'px'
-                  scrubImage.style.width = newSliderWidth + 'px'
+                  img.style.width = newSliderWidth + 'px'
                 }, 500)
                 window.addEventListener('resize', function (e) {
                   reziseFn(scrubImage)
                 })
               } else if (type == 'IMG') {
                 // clone div
-                var scrubImage = document.createElement('div')
-                var imgSrc = el.getAttribute('src')
+                scrubImage = document.createElement('div')
+                imgSrc = el.getAttribute('src')
                 // if src specified manually
                 if (scrubArg.src != null) {
                   imgSrc = index == 0 ? scrubArg.src[0] : scrubArg.src[1]
                 }
                 el.parentNode.removeChild(el)
                 // inject scrub container
-                var scrubCont = document.createElement('div')
+                scrubCont = document.createElement('div')
                 scrubCont.className =
                   index == 0 ? 'scrub-content scrub-left' : 'scrub-content scrub-right'
                 scrubCont.style.width = parseInt(sliderWidth / 2) + 'px'
@@ -165,13 +169,13 @@ var Scrub = (function () {
                 scrubCont.appendChild(scrubImage)
 
                 // handle resize
-                var reziseFn = debounce(function (scrubImage) {
+                var reziserFn = debounce(function (img) {
                   var newSliderWidth = scrubSlider.offsetWidth
                   scrubCont.style.width = parseInt(newSliderWidth / 2) + 'px'
-                  scrubImage.style.width = newSliderWidth + 'px'
+                  img.style.width = newSliderWidth + 'px'
                 }, 500)
                 window.addEventListener('resize', function (e) {
-                  reziseFn(scrubImage)
+                  reziserFn(scrubImage)
                 })
               }
             }
@@ -199,13 +203,13 @@ var Scrub = (function () {
             )
           }
         }
-        utilityFn(function (scrubSlider) {
+        utilityFn(function (slider) {
           // add scrub control/handle
           var scrubHandle = document.createElement('div')
           scrubHandle.className = 'sliding handleOn '
           scrubHandle.innerHTML =
             '<span class="sliding-left"></span><span class="sliding-right"></span>'
-          scrubSlider.appendChild(scrubHandle)
+          slider.appendChild(scrubHandle)
 
           // remove handle if specified
           if (scrubArg.handle == false) {
@@ -214,22 +218,22 @@ var Scrub = (function () {
           }
 
           // scrub slider main action fn
-          var mover = debounce(function (pos, full, slider) {
+          var mover = debounce(function (pos, full, sldr) {
             if (scrubHandle) {
               var shrink = full - pos
-              var sliding = slider.querySelectorAll('.sliding')
+              var sliding = sldr.querySelectorAll('.sliding')
               sliding[0].style.left = (pos > 0 ? pos : 0) + 'px'
-              var contentLeft = slider.querySelectorAll('.scrub-left')
+              var contentLeft = sldr.querySelectorAll('.scrub-left')
               contentLeft[0].style.width = (pos > 0 ? pos : 0) + 'px'
-              var contentRight = slider.querySelectorAll('.scrub-right')
+              var contentRight = sldr.querySelectorAll('.scrub-right')
               contentRight[0].style.width = (shrink > 0 ? shrink : 0) + 'px'
             }
           }, 1)
           // add mousemove listener
-          scrubSlider.addEventListener('mousemove', function (e) {
+          slider.addEventListener('mousemove', function (e) {
             var mousePosition = e.clientX - this.offsetLeft
-            var fullWidth = scrubSlider.offsetWidth
-            mover(mousePosition, fullWidth, scrubSlider)
+            var fullWidth = slider.offsetWidth
+            mover(mousePosition, fullWidth, slider)
           })
         })
       } catch (e) {
