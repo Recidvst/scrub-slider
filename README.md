@@ -18,29 +18,37 @@ A lightweight javascript library that lets you 'scrub' transition between two im
 ### Install
 
 #### JS
+
 Either import the JS as a module:
+
 ```bash
 npm install scrub-slider
 ```
+
 ```js
 import Scrub from "scrub-slider";
 ```
 
 Or consume the module as UMD/IIFE
+
 ```html
 <script src="dist/scrub.iife.js"></script>
 ```
 
 #### CS
+
 Either import the CSS into your JS/CSS:
+
 ```js
-import 'scrub-slider/dist/css/scrub.css';
+import "scrub-slider/dist/css/scrub.css";
 ```
+
 ```scss
-@import 'scrub-slider/dist/css/scrub.css';
+@import "scrub-slider/dist/css/scrub.css";
 ```
 
 Or include it the old fashioned way:
+
 ```html
 <link href="dist/css/scrub.css" rel="stylesheet" />
 ```

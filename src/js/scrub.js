@@ -1,6 +1,6 @@
 /* Scrub Slider */
 
-import '../scss/scrub.scss'
+import "../scss/scrub.scss";
 
 // helper functions
 // object test
