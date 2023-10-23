@@ -6,12 +6,12 @@
 
 A lightweight javascript library that lets you 'scrub' transition between two images with style.
 
-[Demo Page](https://recidvst.github.io/scrub-slider 'scrub demo')
+[Demo Page](https://recidvst.github.io/scrub-slider "scrub demo")
 
 ## Install
 
-- Install the package from [NPM](https://www.npmjs.com/package/scrub-slider 'npm download') or [Yarn](https://yarnpkg.com/en/package/scrub-slider 'yarn download').
-- Or download manually from [Github](https://github.com/Recidvst/scrub-slider/archive/master.zip 'Github download').
+- Install the package from [NPM](https://www.npmjs.com/package/scrub-slider "npm download") or [Yarn](https://yarnpkg.com/en/package/scrub-slider "yarn download").
+- Or download manually from [Github](https://github.com/Recidvst/scrub-slider/archive/master.zip "Github download").
 
 ```bash
 npm install scrub-slider
@@ -22,7 +22,7 @@ npm install scrub-slider
 Either import the JS as a module:
 
 ```js
-import Scrub from 'scrub-slider'
+import Scrub from "scrub-slider";
 ```
 
 Or consume the module as UMD/IIFE
@@ -36,11 +36,11 @@ Or consume the module as UMD/IIFE
 Either import the CSS into your JS/CSS:
 
 ```js
-import 'scrub-slider/dist/scrub.css'
+import "scrub-slider/dist/scrub.css";
 ```
 
 ```scss
-@import 'scrub-slider/dist/scrub.css';
+@import "scrub-slider/dist/scrub.css";
 ```
 
 Or include it the old fashioned way:

@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat', monospace;
+  font-family: "Montserrat", monospace;
   p,
   li {
     font-family: sans-serif;
@@ -31,7 +31,7 @@ h3 {
   font-size: 2rem;
 }
 // sliders
-[class*='example-slider'] {
+[class*="example-slider"] {
   display: block;
   border: 5px solid black;
 }
@@ -60,7 +60,7 @@ section {
 .why-scrub {
   p {
     font-size: 1.5rem;
-    font-family: 'Ubuntu Mono', monospace;
+    font-family: "Ubuntu Mono", monospace;
     padding: 10px;
     font-weight: bold;
   }
@@ -101,7 +101,7 @@ pre {
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     height: 0%;
     left: 50%;
