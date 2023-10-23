@@ -30,7 +30,7 @@ h2 {
 h3 {
   font-size: 2rem;
 }
-[class*='example-slider'] {
+[class*="example-slider"] {
   display: block;
   border: 5px solid #000;
 }
@@ -57,7 +57,7 @@ section {
 }
 .why-scrub p {
   font-size: 1.5rem;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: "Ubuntu Mono", monospace;
   padding: 10px;
   font-weight: 700;
 }
@@ -93,7 +93,7 @@ pre span {
   transition: all 0.2s ease-in-out;
 }
 .btn:after {
-  content: '';
+  content: "";
   position: absolute;
   height: 0%;
   left: 50%;

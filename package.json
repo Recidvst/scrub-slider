@@ -9,9 +9,11 @@
   "iife": "dist/scrub.umd.js",
   "css": "dist/scrub.css",
   "styles": "dist/scrub.css",
+  "types": "dist/scrub.d.ts",
   "scripts": {
     "prettier:fix": "npx prettier . --write",
-    "build": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c && npm run example:css && npm run example:js",
+    "build": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c && npm run types && npm run example:css && npm run example:js",
+    "types": "npx tsc --emitDeclarationOnly --declaration",
     "example:css": "node-sass src/scss/scrub.scss -o example/css && node-sass src/scss/example.scss -o example/css && cleancss example/css/example.css -o example/css/example.css",
     "example:js": "babel src/js/example.js --out-file example/example.js",
     "package:pack": "npm pack",
@@ -48,6 +50,8 @@
     "@babel/register": "^7.22.15",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@tsconfig/recommended": "^1.0.3",
     "autoprefixer": "^10.4.16",
     "babel-plugin-add-module-exports": "^1.0.4",
     "bootstrap-grid": "^3.0.1",
@@ -67,7 +71,9 @@
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-uglify-es": "0.0.1",
-    "sass": "^1.69.3"
+    "sass": "^1.69.3",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
   },
   "lint-staged": {
     "*": "npx prettier . --write"

@@ -19,6 +19,7 @@ package-lock.json
 .gitignore
 .parcel-cache
 rollup.config.mjs
+tsconfig.json
 
 # example
 example
