@@ -43,9 +43,13 @@
     position: absolute;
     left: 50%;
     height: 100%;
-    width: 3px;
+    width: 0px; // was 3px
     z-index: 2;
     background: white;
+    &.handleOff {
+      width: 0px;
+      background: transparent;
+    }
     &.handleOn {
       &:before {
         content: "";

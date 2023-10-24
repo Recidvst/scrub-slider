@@ -59,16 +59,8 @@
 
       <section class="row hero-slider">
         <div class="col-xs-12 example-slider-hero" id="slider1">
-          <div
-            style="
-              background-image: url(https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg);
-            "
-          ></div>
-          <div
-            style="
-              background-image: url(https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg);
-            "
-          ></div>
+          <div></div>
+          <div></div>
         </div>
       </section>
 
@@ -76,7 +68,7 @@
         <div class="col-xs-12 text-center">
           <h2>Why Scrub?</h2>
           <p>- Vanilla JS with no dependencies -</p>
-          <p>- Only around 10.5 kb imported -</p>
+          <p>- Only around 10kb for both JS and CSS -</p>
           <p>- Support for using multiple sliders on a page -</p>
           <p>
             - Simple configuration options and multiple implementation methods -
@@ -139,8 +131,8 @@
           <h3>Initiate</h3>
           <ul>
             <li>
-              Scrub needs to be passed a containing element and two image
-              objects.
+              Scrub needs to be passed a containing element plus two images to
+              work
             </li>
             <br />
             <li>
@@ -156,11 +148,21 @@
               options (see below).
             </li>
             <br />
+            <li>The container should have a width.</li>
+            <br />
             <li>
-              The container should have a width. You have a choice for the two
-              image children -> divs with background-images or imgs with src set
-              are preferred, but you can also use a different tag and pass the
-              src via config.
+              You have a choice for how you want to pass the two images:
+              <br />
+              <br />
+              - `div` with background-image
+              <br />
+              - `img` with src properties
+              <br />
+              - use a different tag and pass the src via config
+            </li>
+            <br />
+            <li>
+              Edit the css provided to add your own styling to e.g. the handle
             </li>
           </ul>
         </div>
@@ -169,18 +171,9 @@
           <h3>Configure</h3>
           <p>
             You can configure your Scrub instance by passing your selector and
-            some config parameters as an object. e.g: <br />
+            some config parameters as an object. The available options are as
+            follows: <br />
           </p>
-          <pre>
-    Scrub({
-        <span>target:</span> '#slider1',
-        <span>height:</span> '500',
-        <span>handle:</span> true,
-        <span>src:</span> ['https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg','https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg'],
-        <span>alt:</span> ['Image number 1 alt','Image number 2 alt']
-    });</pre
-          >
-          <p>The available options are as follows:</p>
           <ul>
             <li>
               <h4>Target</h4>
@@ -203,8 +196,8 @@
               <h4>Handle</h4>
               <strong> Purpose: </strong> This is the switch for the circular
               handle control on the slider's dividing line. Set to false to
-              hide. If you want to hide the vertical bar as well, use css on
-              '.sliding'.<br />
+              hide. If you want to style this differently, add your own css on
+              '.sliding'. <br />
               <strong> Type: </strong> bool <br />
               <strong> Default: </strong> true <br />
               <strong> Required: </strong> No.
@@ -217,8 +210,8 @@
               <strong> Type: </strong> array <br />
               <strong> Default: </strong> null <br />
               <strong> Required: </strong> No. As long as the element you want
-              to instantiate as a Scrub slider is an image or a div with a valid
-              background-image style.
+              to instantiate as a Scrub slider is an image with valid src
+              property or a div with a valid background-image property.
             </li>
             <li>
               <h4>Alt</h4>
@@ -230,6 +223,17 @@
               <strong> Required: </strong> No.
             </li>
           </ul>
+          <br />
+          <p><strong>For example:</strong></p>
+          <pre>
+    Scrub({
+        <span>target:</span> '#slider1',
+        <span>height:</span> '500',
+        <span>handle:</span> true,
+        <span>src:</span> ['https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg','https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg'],
+        <span>alt:</span> ['Image number 1 alt','Image number 2 alt']
+    });</pre
+          >
         </div>
       </section>
 

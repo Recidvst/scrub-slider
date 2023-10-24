@@ -51,10 +51,16 @@ Or include it the old fashioned way:
 
 ## Usage
 
-- Scrub needs to be passed a containing element and two image objects.
+> Scrub needs to be passed a containing element plus two images to work
+
 - Initiate a Scrub instance by calling Scrub() with a valid selector (of the parent element). This is best as an ID but a unique class is fine too.
 - If you wish to configure your slider, pass Scrub() an object with config options (see below).
-- The container should have a width. You have a choice for the two image children -> divs with background-images or imgs with src set are preferred, but you can also use a different tag and pass the src via config.
+- The container should have a width.
+- You have a choice for how you want to pass the two images:
+  - `<div>` with background-image
+  - `<img>` with src properties
+  - use a different tag and pass the src via config
+- Edit the css provided to add your own styling to e.g. the handle
 
 ## Configure
 
@@ -76,7 +82,7 @@ You can configure your Scrub instance by passing your selector and some config p
 
 ### `Handle`
 
-**Purpose:** This is the switch for the circular handle control on the slider's dividing line. Set to false to hide. If you want to hide the vertical bar as well, use css on '.sliding'.  
+**Purpose:** This is the switch for the circular handle control on the slider's dividing line. Set to false to hide. If you want to style this differently, add your own css on '.sliding'.  
 **Type:** bool  
 **Default:** true  
 **Required:** No.
@@ -86,7 +92,7 @@ You can configure your Scrub instance by passing your selector and some config p
 **Purpose:** Alternate method of specifying slider images. Pass an array of two strings containing an img src. Left then right.  
 **Type:** array  
 **Default:** null  
-**Required:** No. As long as the element you want to instantiate as a Scrub slider is an image or a div with a valid background-image style.
+**Required:** No. As long as the element you want to instantiate as a Scrub slider is an image with valid src property or a div with a valid background-image property.
 
 ### `Alt`
 

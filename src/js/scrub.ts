@@ -3,18 +3,13 @@
 import "../scss/scrub.scss";
 
 interface ScrubConfig {
-  target?: string | null;
+  target: string;
   height?: string;
   handle?: boolean;
   src?: [string, string] | null;
   alt?: [string, string] | null;
 }
 
-/* helper functions */
-// object test
-const isObject = (a: any): boolean => {
-  return !!a && a.constructor === Object;
-};
 // debounce (thanks to Underscore)
 function debounce(func: (...args: any[]) => void, wait: number, immediate: boolean) {
   let timeout: number | null;
@@ -31,17 +26,6 @@ function debounce(func: (...args: any[]) => void, wait: number, immediate: boole
     if (callNow) func.apply(context, args);
   };
 }
-
-// handle resize when image is scrubbed
-const reziseFn = debounce(
-  function (img: HTMLElement, slider: HTMLElement, container: HTMLElement) {
-    const newSliderWidth = slider.offsetWidth;
-    container.style.width = newSliderWidth / 2 + "px";
-    img.style.width = newSliderWidth + "px";
-  },
-  500,
-  false
-);
 
 // handle main scrub action
 const mover = debounce(
@@ -108,9 +92,6 @@ function createScrubImages(
         "color:cornflowerblue;"
       );
     }
-    window.addEventListener("resize", function (e) {
-      reziseFn(scrubImage, slider, scrubCont);
-    });
   } else if (type == "IMG") {
     // clone div
     scrubImage = document.createElement("div");
@@ -133,19 +114,27 @@ function createScrubImages(
     scrubImage.style.width = sliderWidth + "px";
     scrubImage.style.backgroundImage = "url(" + imgSrc + ")";
     scrubCont.appendChild(scrubImage);
-
-    window.addEventListener("resize", function (e) {
-      reziseFn(scrubImage, slider, scrubCont);
-    });
   }
+
+  // handle resize
+  const resizeHandler = debounce(
+    function (img: HTMLElement) {
+      const newSliderWidth = slider.offsetWidth;
+      scrubCont.style.width = newSliderWidth / 2 + "px";
+      img.style.width = newSliderWidth + "px";
+    },
+    500,
+    false
+  );
+  window.addEventListener("resize", function (e: Event) {
+    resizeHandler(scrubImage, slider, scrubCont);
+  });
 }
 
 // avoid non-specific classes..
 function alertOnNonSpecificClassNames(config: ScrubConfig) {
   let scrubName: string | null | undefined = config.target;
   if (scrubName != null) {
-    // scrubName = scrubName.replace("#", "");
-    // scrubName = scrubName.replace(".", "");
     if (scrubName.indexOf(".") > -1 && document.querySelectorAll(scrubName).length > 1) {
       console.warn(
         "%cScrub Slider works best if you use an %cID%c or a %cunique%c class... ",
@@ -193,14 +182,19 @@ function findAndCreateSlider(scrubConfig: ScrubConfig): void {
       }
     }
 
-    // add scrub control/handle if not switched off
+    // add scrub control/handle
+    // always added in the background to enable the sliding action
     let scrubHandle: HTMLElement;
-    if (scrubConfig?.handle != false) {
-      scrubHandle = document.createElement("div");
-      scrubHandle.className = "sliding handleOn ";
-      scrubHandle.innerHTML =
-        '<span class="sliding-left"></span><span class="sliding-right"></span>';
-      scrubSlider.appendChild(scrubHandle);
+    scrubHandle = document.createElement("div");
+    scrubHandle.className = "sliding handleOn ";
+    scrubHandle.innerHTML = '<span class="sliding-left"></span><span class="sliding-right"></span>';
+    scrubSlider.appendChild(scrubHandle);
+
+    // remove the physical handle if not required
+    if (scrubConfig?.handle == false) {
+      scrubHandle.innerHTML = "";
+      scrubHandle.classList.remove("handleOn");
+      scrubHandle.className += " handleOff ";
     }
 
     // add mousemove listener to the slider
@@ -221,8 +215,9 @@ function findAndCreateSlider(scrubConfig: ScrubConfig): void {
 // main entry fn
 function Scrub(scrubArg: string | ScrubConfig): void {
   // set function default arguments
-  let scrubConfig: ScrubConfig = {};
-  scrubConfig.target = (scrubArg as ScrubConfig).target ?? (scrubArg as string);
+  let scrubConfig: ScrubConfig = {
+    target: (scrubArg as ScrubConfig).target ?? (scrubArg as string),
+  };
   scrubConfig.height = (scrubArg as ScrubConfig).height ?? "500px";
   scrubConfig.handle = (scrubArg as ScrubConfig).handle ?? true;
   scrubConfig.src = (scrubArg as ScrubConfig).src ?? null;

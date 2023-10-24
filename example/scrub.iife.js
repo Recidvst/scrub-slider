@@ -21,16 +21,6 @@ var Scrub = (function () {
       if (callNow) func.apply(context, args);
     };
   }
-  // handle resize when image is scrubbed
-  var reziseFn = debounce(
-    function (img, slider, container) {
-      var newSliderWidth = slider.offsetWidth;
-      container.style.width = newSliderWidth / 2 + "px";
-      img.style.width = newSliderWidth + "px";
-    },
-    500,
-    false
-  );
   // handle main scrub action
   var mover = debounce(
     function (pos, full, sldr, handle) {
@@ -90,9 +80,6 @@ var Scrub = (function () {
           "color:cornflowerblue;"
         );
       }
-      window.addEventListener("resize", function (e) {
-        reziseFn(scrubImage, slider, scrubCont);
-      });
     } else if (type == "IMG") {
       // clone div
       scrubImage = document.createElement("div");
@@ -115,17 +102,25 @@ var Scrub = (function () {
       scrubImage.style.width = sliderWidth + "px";
       scrubImage.style.backgroundImage = "url(" + imgSrc + ")";
       scrubCont.appendChild(scrubImage);
-      window.addEventListener("resize", function (e) {
-        reziseFn(scrubImage, slider, scrubCont);
-      });
     }
+    // handle resize
+    var resizeHandler = debounce(
+      function (img) {
+        var newSliderWidth = slider.offsetWidth;
+        scrubCont.style.width = newSliderWidth / 2 + "px";
+        img.style.width = newSliderWidth + "px";
+      },
+      500,
+      false
+    );
+    window.addEventListener("resize", function (e) {
+      resizeHandler(scrubImage, slider, scrubCont);
+    });
   }
   // avoid non-specific classes..
   function alertOnNonSpecificClassNames(config) {
     var scrubName = config.target;
     if (scrubName != null) {
-      // scrubName = scrubName.replace("#", "");
-      // scrubName = scrubName.replace(".", "");
       if (scrubName.indexOf(".") > -1 && document.querySelectorAll(scrubName).length > 1) {
         console.warn(
           "%cScrub Slider works best if you use an %cID%c or a %cunique%c class... ",
@@ -159,14 +154,19 @@ var Scrub = (function () {
           createScrubImages(scrubSlider, scrubConfig, scrubChildren[i], child.tagName, i);
         }
       }
-      // add scrub control/handle if not switched off
+      // add scrub control/handle
+      // always added in the background to enable the sliding action
       var scrubHandle_1;
-      if ((scrubConfig === null || scrubConfig === void 0 ? void 0 : scrubConfig.handle) != false) {
-        scrubHandle_1 = document.createElement("div");
-        scrubHandle_1.className = "sliding handleOn ";
-        scrubHandle_1.innerHTML =
-          '<span class="sliding-left"></span><span class="sliding-right"></span>';
-        scrubSlider.appendChild(scrubHandle_1);
+      scrubHandle_1 = document.createElement("div");
+      scrubHandle_1.className = "sliding handleOn ";
+      scrubHandle_1.innerHTML =
+        '<span class="sliding-left"></span><span class="sliding-right"></span>';
+      scrubSlider.appendChild(scrubHandle_1);
+      // remove the physical handle if not required
+      if ((scrubConfig === null || scrubConfig === void 0 ? void 0 : scrubConfig.handle) == false) {
+        scrubHandle_1.innerHTML = "";
+        scrubHandle_1.classList.remove("handleOn");
+        scrubHandle_1.className += " handleOff ";
       }
       // add mousemove listener to the slider
       scrubSlider.addEventListener("mousemove", function (e) {
@@ -186,8 +186,9 @@ var Scrub = (function () {
   function Scrub(scrubArg) {
     var _a, _b, _c, _d, _e;
     // set function default arguments
-    var scrubConfig = {};
-    scrubConfig.target = (_a = scrubArg.target) !== null && _a !== void 0 ? _a : scrubArg;
+    var scrubConfig = {
+      target: (_a = scrubArg.target) !== null && _a !== void 0 ? _a : scrubArg,
+    };
     scrubConfig.height = (_b = scrubArg.height) !== null && _b !== void 0 ? _b : "500px";
     scrubConfig.handle = (_c = scrubArg.handle) !== null && _c !== void 0 ? _c : true;
     scrubConfig.src = (_d = scrubArg.src) !== null && _d !== void 0 ? _d : null;
