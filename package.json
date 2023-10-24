@@ -21,6 +21,9 @@
     "package:patch": "npm version patch",
     "postinstall": "npx husky install"
   },
+  "lint-staged": {
+    "*": "npx prettier . --check"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Recidvst/scrub-slider.git"
@@ -74,8 +77,5 @@
     "sass": "^1.69.3",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"
-  },
-  "lint-staged": {
-    "*": "npx prettier . --write"
   }
 }
