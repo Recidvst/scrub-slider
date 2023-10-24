@@ -100,3 +100,18 @@ You can configure your Scrub instance by passing your selector and some config p
 **Type:** array  
 **Default:** null  
 **Required:** No.
+
+## Example
+
+```js
+Scrub({
+  target: "#slider1",
+  height: "500",
+  handle: true,
+  src: [
+    "https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-min.jpg",
+    "https://raw.github.com/Recidvst/recidvst-images/master/mustang-old-inverted-min.jpg",
+  ],
+  alt: ["Image number 1 alt", "Image number 2 alt"],
+});
+```
