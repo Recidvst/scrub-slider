@@ -1,7 +1,7 @@
 {
   "name": "scrub-slider",
   "version": "2.1.0",
-  "description": "Scrub Slider",
+  "description": "A lightweight javascript library that lets you 'scrub' transition between two images with style.",
   "main": "dist/scrub.cjs.js",
   "module": "dist/scrub.esm.js",
   "browser": "dist/scrub.umd.js",
@@ -19,8 +19,7 @@
     "example:js": "babel src/js/example.js --out-file example/example.js",
     "package:pack": "npm pack",
     "package:minor": "npm version minor",
-    "package:patch": "npm version patch",
-    "postinstall": "npx husky install"
+    "package:patch": "npm version patch"
   },
   "lint-staged": {
     "*": "npx prettier . --check"
