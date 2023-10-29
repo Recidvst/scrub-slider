@@ -1,7 +1,4 @@
 /* Scrub Slider */
-
-import "../scss/scrub.scss";
-
 interface ScrubConfig {
   target: string;
   height?: string;
@@ -62,37 +59,8 @@ function createScrubImages(
   let imgSrc: string;
   let scrubCont: HTMLElement;
   let sliderWidth = slider.offsetWidth;
-  if (type == "DIV") {
-    // clone div
-    scrubImage = el.cloneNode(true) as HTMLElement;
-    el.parentNode?.removeChild(el);
-    // inject scrub container
-    scrubCont = document.createElement("div");
-    scrubCont.className = index == 0 ? "scrub-content scrub-left" : "scrub-content scrub-right";
-    scrubCont.style.width = sliderWidth / 2 + "px";
-    slider.insertBefore(scrubCont, slider.firstChild);
-    // re-attach div
-    scrubImage.style.width = sliderWidth + "px";
-    // if alt specified manually
-    if (config.alt != null) {
-      scrubImage.setAttribute("alt", index == 0 ? config.alt[0] : config.alt[1]);
-    }
-    // if src specified manually
-    if (config.src != null) {
-      imgSrc = index == 0 ? config.src[0] : config.src[1];
-      scrubImage.style.backgroundImage = "url(" + imgSrc + ")";
-    }
-    scrubCont.appendChild(scrubImage);
-    // need a background image...
-    if (el.style.backgroundImage == "") {
-      console.warn(
-        "%cScrub Slider divs must have a %cbackground image to work!%c >:[",
-        "color:cornflowerblue;",
-        "color:indianred;",
-        "color:cornflowerblue;"
-      );
-    }
-  } else if (type == "IMG") {
+
+  if (type == "IMG") {
     // clone div
     scrubImage = document.createElement("div");
     imgSrc = el.getAttribute("src") ?? "";
@@ -114,6 +82,36 @@ function createScrubImages(
     scrubImage.style.width = sliderWidth + "px";
     scrubImage.style.backgroundImage = "url(" + imgSrc + ")";
     scrubCont.appendChild(scrubImage);
+  } else {
+    // clone div
+    scrubImage = el.cloneNode(true) as HTMLElement;
+    el.parentNode?.removeChild(el);
+    // inject scrub container
+    scrubCont = document.createElement("div");
+    scrubCont.className = index == 0 ? "scrub-content scrub-left" : "scrub-content scrub-right";
+    scrubCont.style.width = sliderWidth / 2 + "px";
+    slider.insertBefore(scrubCont, slider.firstChild);
+    // re-attach div
+    scrubImage.style.width = sliderWidth + "px";
+    // if alt specified manually
+    if (config.alt != null) {
+      scrubImage.setAttribute("alt", index == 0 ? config.alt[0] : config.alt[1]);
+    }
+    // if src specified manually
+    if (config.src != null) {
+      imgSrc = index == 0 ? config.src[0] : config.src[1];
+      scrubImage.style.backgroundImage = "url(" + imgSrc + ")";
+    }
+    scrubCont.appendChild(scrubImage);
+    // need a background image...
+    if (config.src == null && el.style.backgroundImage == "") {
+      console.warn(
+        "%cScrub Slider divs must have a %cbackground image to work! It's best to set these on the html directly.%c",
+        "color:cornflowerblue;",
+        "color:indianred;",
+        "color:cornflowerblue;"
+      );
+    }
   }
 
   // handle resize

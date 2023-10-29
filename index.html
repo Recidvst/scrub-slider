@@ -14,7 +14,7 @@
     <title>Scrub Slider</title>
 
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link href="example/css/scrub.css" rel="stylesheet" />
+    <link href="dist/scrub.css" rel="stylesheet" />
     <link href="example/css/example.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -132,7 +132,7 @@
           <ul>
             <li>
               Scrub needs to be passed a containing element plus two images to
-              work
+              work.
             </li>
             <br />
             <li>
@@ -148,22 +148,22 @@
               options (see below).
             </li>
             <br />
-            <li>The container should have a width.</li>
-            <br />
             <li>
               You have a choice for how you want to pass the two images:
               <br />
               <br />
-              - `div` with background-image
-              <br />
               - `img` with src properties
+              <br />
+              - `div` with background-image set on the tag
               <br />
               - use a different tag and pass the src via config
             </li>
             <br />
             <li>
-              Edit the css provided to add your own styling to e.g. the handle
+              Edit the css provided to add your own styling e.g. to the handle
             </li>
+            <br />
+            <li>The container should have a width.</li>
           </ul>
         </div>
         <div class="col-xs-12 options">
@@ -266,8 +266,6 @@
       </footer>
     </main>
 
-    <script src="example/scrub.iife.js"></script>
-    <script src="example/example.js"></script>
-    <!--    <script type="module" src="example/example.js"></script>-->
+    <script type="module" src="example/example.js"></script>
   </body>
 </html>

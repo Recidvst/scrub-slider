@@ -55,12 +55,12 @@ Or include it the old fashioned way:
 
 - Initiate a Scrub instance by calling Scrub() with a valid selector (of the parent element). This is best as an ID but a unique class is fine too.
 - If you wish to configure your slider, pass Scrub() an object with config options (see below).
-- The container should have a width.
 - You have a choice for how you want to pass the two images:
-  - `<div>` with background-image
   - `<img>` with src properties
-  - use a different tag and pass the src via config
-- Edit the css provided to add your own styling to e.g. the handle
+  - `<div>` with background-image set on the html
+  - `any tag` (empty), with image specified with the `src` config property
+- Edit the css provided to add your own styling e.g. to the handle
+- The container should have a width.
 
 ## Configure
 

@@ -12,9 +12,10 @@
   "types": "dist/scrub.d.ts",
   "scripts": {
     "prettier:fix": "npx prettier . --write",
-    "build": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c && npm run types && npm run example:css && npm run example:js",
+    "build": "cross-env BABEL_ENV=production NODE_ENV=production rollup -c && npm run types && npm run css && npm run example:css && npm run example:js",
     "types": "npx tsc --emitDeclarationOnly --declaration",
-    "example:css": "node-sass src/scss/scrub.scss -o example/css && node-sass src/scss/example.scss -o example/css && cleancss example/css/example.css -o example/css/example.css",
+    "css": "node-sass src/scss/scrub.scss -o dist",
+    "example:css": "node-sass src/scss/example.scss -o example/css && cleancss example/css/example.css -o example/css/example.css",
     "example:js": "babel src/js/example.js --out-file example/example.js",
     "package:pack": "npm pack",
     "package:minor": "npm version minor",

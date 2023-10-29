@@ -28,11 +28,6 @@ export default {
       file: `${folder}/scrub.iife.js`,
       format: "iife",
     },
-    {
-      name: "Scrub",
-      file: `example/scrub.iife.js`,
-      format: "iife",
-    },
   ],
   plugins: [
     resolve(),

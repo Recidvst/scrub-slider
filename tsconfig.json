@@ -3,7 +3,9 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es5", "es6", "dom"],
-    "outDir": "dist"
+    "outDir": "dist",
+    "skipLibCheck": true
   },
-  "files": ["src/js/scrub.ts"]
+  "files": ["src/js/scrub.ts"],
+  "exclude": ["node_modules"]
 }
